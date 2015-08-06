@@ -22,7 +22,7 @@ object HigherOrder {
 
   def cube(x: Int): Int = x * x * x //> cube: (x: Int)Int
 
-  def sumCubes(n: Int) = sum(cube) //> sumCubes: (n: Int)Int
+  def sumCubes(n: Int) = sum(cube, n) //> sumCubes: (n: Int)Int
   // desugars to : def sumCubes(n: Int) = sum({ def c(x: Int) = x * x * x; c }, n)
 
   sumCubes(10) //> res2: Int = 3025
