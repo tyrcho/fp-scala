@@ -1,7 +1,7 @@
 package funsets
 
 import org.junit.runner.RunWith
-import org.scalatest.{Finders, FlatSpec, Matchers}
+import org.scalatest.{ Finders, FlatSpec, Matchers }
 import FunSets._
 import org.scalatest.junit.JUnitRunner
 
@@ -11,6 +11,7 @@ class FunSetSuite extends FlatSpec with Matchers {
   import FunSets._
 
   "contains" should "be implemented" in {
+    // this actually tests that the set of all bound integers contains 100
     assert(contains(x => true, 100))
   }
 
@@ -35,16 +36,10 @@ class FunSetSuite extends FlatSpec with Matchers {
     val s1 = singletonSet(1)
     val s2 = singletonSet(2)
     val s3 = singletonSet(3)
+    val s4 = singletonSet(4)
   }
 
-  /**
-   * This test is currently disabled (by using "ignore") because the method
-   * "singletonSet" is not yet implemented and the test would fail.
-   *
-   * Once you finish your implementation of "singletonSet", exchange
-   * ignore by "singletonSet".
-   */
-  ignore should "contain one element" in {
+  "singletonSet" should "contain one element" in {
     /**
      * We create a new instance of the "TestSets" trait, this gives us access
      * to the values "s1" to "s3".
@@ -58,12 +53,96 @@ class FunSetSuite extends FlatSpec with Matchers {
     }
   }
 
-  ignore should "contain all elements" in {
+  "union of 1 and 2" should "contain 1, 2 but not 3" in {
     new TestSets {
       val s = union(s1, s2)
       assert(contains(s, 1), "Union 1")
       assert(contains(s, 2), "Union 2")
       assert(!contains(s, 3), "Union 3")
+    }
+  }
+
+  trait TestSetsUnion extends TestSets {
+    val s12 = union(s1, s2)
+    val s23 = union(s3, s2)
+    val s1234 = union(union(s1, s2), union(s3, s4))
+  }
+
+  "intersection of (1, 2) and (2, 3)" should "contain only 2" in {
+    new TestSetsUnion {
+      val intersection = intersect(s12, s23)
+      assert(!contains(intersection, 1), "Intersection 1")
+      assert(contains(intersection, 2), "Intersection 2")
+      assert(!contains(intersection, 3), "Intersection 3")
+    }
+  }
+
+  "diff of (1, 2, 3, 4) and (2, 3)" should "contain only (1, 4)" in {
+    new TestSetsUnion {
+      val difference = diff(s1234, s23)
+      assert(contains(difference, 1), "Difference 1")
+      assert(!contains(difference, 2), "Difference 2")
+      assert(!contains(difference, 3), "Difference 3")
+      assert(contains(difference, 4), "Difference 4")
+    }
+  }
+
+  
+  "diff of (1, 2) and (2, 3)" should "contain only (1)" in {
+    new TestSetsUnion {
+      val difference = diff(s12, s23)
+      assert(contains(difference, 1), "Difference 1")
+      assert(!contains(difference, 2), "Difference 2")
+      assert(!contains(difference, 3), "Difference 3")
+    }
+  }
+
+  "filter of (1, 2, 3, 4) for odd numbers" should "contain only (1, 3)" in {
+    new TestSetsUnion {
+      val filtered = filter(s1234, x => x % 2 == 1)
+      assert(contains(filtered, 1), "Filtered 1")
+      assert(!contains(filtered, 2), "Filtered 2")
+      assert(contains(filtered, 3), "Filtered 3")
+      assert(!contains(filtered, 4), "Filtered 4")
+    }
+  }
+
+  "forall of (1, 2, 3, 4) for odd numbers" should "be false" in {
+    new TestSetsUnion {
+      forall(s1234, x => x % 2 == 1) shouldBe false
+    }
+  }
+
+  "forall of (1, 2, 3, 4) for small numbers" should "be true" in {
+    new TestSetsUnion {
+      forall(s1234, x => x < 5) shouldBe true
+    }
+  }
+  
+   "forall of (1, 2, 3, 4) for large numbers" should "be false" in {
+    new TestSetsUnion {
+      forall(s1234, x => x > 5) shouldBe false
+    }
+  }
+
+  "exists of (1, 2, 3, 4) for odd numbers" should "be true" in {
+    new TestSetsUnion {
+      exists(s1234, x => x % 2 == 1) shouldBe true
+    }
+  }
+
+  "exists of (1, 2, 3, 4) for large numbers" should "be false" in {
+    new TestSetsUnion {
+      exists(s1234, x => x > 5) shouldBe false
+    }
+  }
+
+  "map of (1, 2, 3, 4) for square" should "be (1, 4, 9, 16)" in {
+    new TestSetsUnion {
+      val mapped = map(s1234, x => x * x)
+      assert(contains(mapped, 1), "Mapped 1")
+      assert(contains(mapped, 4), "Mapped 4")
+      assert(contains(mapped, 16), "Mapped 16")
     }
   }
 
