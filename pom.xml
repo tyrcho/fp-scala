@@ -19,6 +19,7 @@
 	<modules>
 		<module>samples</module>
 		<module>recursivity</module>
+		<module>funsets</module>
 	</modules>
 
 	<dependencyManagement>
