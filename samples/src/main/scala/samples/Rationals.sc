@@ -18,4 +18,5 @@ object Rationals {
   val y = new Rational(5, 7)                      //> y  : samples.Rationals.Rational = 5/7
   val z = new Rational(3, 2)                      //> z  : samples.Rationals.Rational = 3/2
   x.add(y).mul(z)                                 //> res0: samples.Rationals.Rational = 66/42
+
 }
