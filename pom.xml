@@ -20,6 +20,7 @@
 		<module>samples</module>
 		<module>recursivity</module>
 		<module>funsets</module>
+		<module>objsets</module>
 	</modules>
 
 	<dependencyManagement>
@@ -28,6 +29,12 @@
 				<artifactId>scala-library</artifactId>
 				<groupId>org.scala-lang</groupId>
 				<version>${scala.version}</version>
+			</dependency>
+
+			<dependency>
+				<artifactId>scala-parser-combinators_2.11</artifactId>
+				<groupId>org.scala-lang.modules</groupId>
+				<version>1.0.2</version>
 			</dependency>
 
 			<!-- tests -->
