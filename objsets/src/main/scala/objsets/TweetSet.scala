@@ -43,7 +43,7 @@ abstract class TweetSet {
    * and be implemented in the subclasses?
    */
   def filter(p: Tweet => Boolean): TweetSet = ???
-
+  
   /**
    * This is a helper method for `filter` that propagetes the accumulated tweets.
    */
@@ -55,9 +55,8 @@ abstract class TweetSet {
    * Question: Should we implement this method here, or should it remain abstract
    * and be implemented in the subclasses?
    */
-  def union(that: TweetSet): TweetSet =
-    ???
-
+  def union(that: TweetSet): TweetSet = ???
+  
   /**
    * Returns a list containing all tweets of this set, sorted by retweet count
    * in ascending order. In other words, the head of the resulting list should
@@ -68,7 +67,7 @@ abstract class TweetSet {
    * and be implemented in the subclasses?
    */
   def ascendingByRetweet: Trending = ???
-
+  
   // The following methods are provided for you, and do not have to be changed
   // -------------------------------------------------------------------------
   /**
@@ -180,8 +179,8 @@ abstract class Trending {
   }
 }
 
-class EmptyTrending extends Trending {
-  def +(tw: Tweet) = new NonEmptyTrending(tw, new EmptyTrending)
+object EmptyTrending extends Trending {
+  def +(tw: Tweet) = new NonEmptyTrending(tw, EmptyTrending)
   def head: Tweet = throw new Exception
   def tail: Trending = throw new Exception
   def isEmpty: Boolean = true
