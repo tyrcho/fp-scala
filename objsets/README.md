@@ -10,13 +10,15 @@ Before tackling this assignment, we suggest you first study the already implemen
 
 ## Grading :
 
-* 1 Filtering 
-* 2 Unions
-* 3 Sorting
-* 4 Tying everything together
-functional programming (don't use variables, return statements or any imperative patterns) : +8 points
-use of no other methods of List[Char] than the 3 listed : +2 points
-bonus : +5 points if you solve the next optional exercise
+* 1 Filtering : 6 points
+* 2 Unions : 4 points
+* 3 Sorting : 4 points
+* 4 Tying everything together : 6 points
+
+To get the full mark for each step you need to follow functional programming best practices
+(don't use variables, return statements or any imperative patterns) and have a correct implementation.
+
+Bonus points : up to 4 points if you improved TweetSetSuite with your own tests.
 
 ## 1 Filtering
 
