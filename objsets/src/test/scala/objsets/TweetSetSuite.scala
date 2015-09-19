@@ -8,7 +8,7 @@ import org.scalatest.junit.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 class TweetSetSuite extends FunSuite {
   trait TestSets {
-    val set1 = new Empty
+    val set1 = EmptySet
     val set2 = set1.incl(new Tweet("a", "a body", 20))
     val set3 = set2.incl(new Tweet("b", "b body", 20))
     val c = new Tweet("c", "c body", 7)
