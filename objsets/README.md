@@ -8,6 +8,16 @@ Note also that these classes are _immutable_: the set-theoretic operations do no
 
 Before tackling this assignment, we suggest you first study the already implemented methods `contains` and `incl` for inspiration.
 
+## Grading :
+
+* 1 Filtering 
+* 2 Unions
+* 3 Sorting
+* 4 Tying everything together
+functional programming (don't use variables, return statements or any imperative patterns) : +8 points
+use of no other methods of List[Char] than the 3 listed : +2 points
+bonus : +5 points if you solve the next optional exercise
+
 ## 1 Filtering
 
 Implement filtering on tweet sets. Complete the stubs for the methods `filter` and `filter0`. `filter` takes as argument a function, the predicate, which takes a tweet and returns a boolean. `filter` then returns the subset of all the tweets in the original set for which the predicate is true. For example, the following call:
