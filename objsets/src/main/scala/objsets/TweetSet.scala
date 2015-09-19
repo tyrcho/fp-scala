@@ -205,8 +205,6 @@ object GoogleVsApple {
 
   val apple = List("ios", "iOS", "iphone", "iPhone", "ipad", "iPad")
 
-  def filter(keywords: List[String]) = ???
-
   val googleTweets: TweetSet = ???
 
   val appleTweets: TweetSet = ???
