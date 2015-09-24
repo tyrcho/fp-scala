@@ -42,8 +42,9 @@ abstract class TweetSet {
    * Question: Can we implement this method here, or should it remain abstract
    * and be implemented in the subclasses?
    */
-  def filter(p: Tweet => Boolean): TweetSet = ???
-  
+  def filter(p: Tweet => Boolean): TweetSet =
+    ??? // TODO: filter elements
+
   /**
    * This is a helper method for `filter` that propagetes the accumulated tweets.
    */
@@ -55,8 +56,9 @@ abstract class TweetSet {
    * Question: Should we implement this method here, or should it remain abstract
    * and be implemented in the subclasses?
    */
-  def union(that: TweetSet): TweetSet = ???
-  
+  def union(that: TweetSet): TweetSet =
+    ??? //TODO : union
+
   /**
    * Returns a list containing all tweets of this set, sorted by retweet count
    * in ascending order. In other words, the head of the resulting list should
@@ -66,8 +68,9 @@ abstract class TweetSet {
    * Question: Should we implement this method here, or should it remain abstract
    * and be implemented in the subclasses?
    */
-  def ascendingByRetweet: Trending = ???
-  
+  def ascendingByRetweet: Trending =
+    ??? //TODO: construct the list of tweets ordered by retweet count
+
   // The following methods are provided for you, and do not have to be changed
   // -------------------------------------------------------------------------
   /**
@@ -129,7 +132,8 @@ object EmptySet extends TweetSet {
   def remove(tw: Tweet): TweetSet = this
   // -------------------------------------------------------------------------
 
-  def filter0(p: Tweet => Boolean, acc: TweetSet): TweetSet = ???
+  def filter0(p: Tweet => Boolean, acc: TweetSet): TweetSet =
+    ??? //TODO : you can implement the helper function in EmptySet
 
 }
 
@@ -159,7 +163,8 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
     else left.union(right)
   // -------------------------------------------------------------------------
 
-  def filter0(p: Tweet => Boolean, acc: TweetSet): TweetSet = ???
+  def filter0(p: Tweet => Boolean, acc: TweetSet): TweetSet =
+    ??? //TODO : you can implement the helper function in the NonEmpty set
 
 }
 
@@ -205,12 +210,15 @@ object GoogleVsApple {
 
   val apple = List("ios", "iOS", "iphone", "iPhone", "ipad", "iPad")
 
-  val googleTweets: TweetSet = ???
+  val googleTweets: TweetSet =
+    ??? //TODO: keep only google tweets
 
-  val appleTweets: TweetSet = ???
+  val appleTweets: TweetSet =
+    ??? //TODO: keep only apple tweets
 
-  // Q: from both sets, what is the tweet with highest #retweets?
-  val trending: Trending = ???
+  val trending: Trending =
+    ??? // TODO: join both sets
+  //TODO what is the tweet with highest #retweets?
 }
 
 object Main extends App {
