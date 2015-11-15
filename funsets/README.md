@@ -18,6 +18,20 @@ Using this representation, we define a function that tests for the presence of a
 
     def contains(s: Set, elem: Int): Boolean = s(elem)
 
+## Grading
+
+Remember the rules :
+- code compiles and passes all tests 
+- functional programming (don't use variables, return statements or any imperative patterns)
+- up to 5 bonus points if you write additional, relevant tests in the suite
+
+singletonSet, union, intersect, diff, filter : 2 points each
+
+forall, exists : 3 points each
+
+map : 4 points
+
+
 ## 2.1 Basic Functions on Sets
 
 Let’s start by implementing basic functions on sets.
