@@ -2,13 +2,11 @@ In this assignment, you will work with a functional representation of sets based
 
 You will write your solutions by completing the stubs in the `FunSets.scala` file.
 
-Write your own tests! For this assignment, we don’t give you tests but instead the `FunSetSuite.scala` file contains hints on how to write your own tests for the assignment.
-
 ## Representation
 
 We will work with sets of integers.
 
-As an example to motivate our representation, how would you represent the set of all negative integers? You cannot list them all… one way would be so say: if you give me an integer, I can tell you whether it’s in the set or not: for `3`, I say ‘no’; for `-1`, I say `yes`.
+As an example to motivate our representation, how would you represent the set of all negative integers? You cannot list them allâ€¦ one way would be so say: if you give me an integer, I can tell you whether itâ€™s in the set or not: for `3`, I say â€˜noâ€™; for `-1`, I say `yes`.
 
 Mathematically, we call the function which takes an integer as argument and which returns a boolean indicating whether the given integer belongs to a set, the _characteristic_ function of the set. For example, we can characterize the set of negative integers by the characteristic function `(x: Int) => x < 0`.
 
@@ -22,7 +20,7 @@ Using this representation, we define a function that tests for the presence of a
 
 ## 2.1 Basic Functions on Sets
 
-Let’s start by implementing basic functions on sets.
+Letâ€™s start by implementing basic functions on sets.
 
 1.  Define a function which creates a singleton set from one integer value: the set represents the set of the one given element. Its signature is as follows:
 
