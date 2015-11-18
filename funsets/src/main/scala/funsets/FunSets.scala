@@ -82,6 +82,12 @@ object FunSets {
   def map(s: Set, f: Int => Int): Set =
     ??? //TODO : transform into a new set
 
+  def toSet(ints: List[Int]): Set =
+    ??? //TODO : (optional) convert a list to Set
+
+  def toList(set: Set): List[Int] =
+    ??? //TODO : (optional) convert a Set to a List
+
   /**
    * Displays the contents of a set
    */
