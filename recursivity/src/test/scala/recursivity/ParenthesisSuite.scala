@@ -22,7 +22,7 @@ class ParenthesisSuite extends FlatSpec with Matchers {
   }
 
   it should "be smarter than counting" in {
-    balance("())(".toList) shouldBe false
+    balance("(()))(()".toList) shouldBe false
   }
 
 }
