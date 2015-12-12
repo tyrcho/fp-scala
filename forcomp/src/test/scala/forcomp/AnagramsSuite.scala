@@ -18,8 +18,8 @@ class AnagramsSuite extends FunSuite {
     assert(wordOccurrences("Robert") === List(('b', 1), ('e', 1), ('o', 1), ('r', 2), ('t', 1)))
   }
 
-  test("sentenceOccurrences: abcd e") {
-    assert(sentenceOccurrences(List("abcd", "e")) === List(('a', 1), ('b', 1), ('c', 1), ('d', 1), ('e', 1)))
+  test("sentenceOccurrences: abcd ea") {
+    assert(sentenceOccurrences(List("abcd", "ea")) === List(('a', 2), ('b', 1), ('c', 1), ('d', 1), ('e', 1)))
   }
 
   test("dictionaryByOccurrences.get: eat") {
@@ -88,7 +88,7 @@ class AnagramsSuite extends FunSuite {
       List("Zulu", "nil", "Rex"),
       List("rulez", "Linux"),
       List("Linux", "rulez"))
-    assert(sentenceAnagrams(sentence).toSet === anas.toSet)
+    assert(sentenceAnagrams(sentence).toSet.map { l: Sentence => l.toSet } === anas.toSet.map { l: Sentence => l.toSet })
   }
 
 }
