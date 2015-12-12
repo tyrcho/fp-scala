@@ -10,6 +10,22 @@ Note that Scala uses the `String` from Java, therefore the documentation for str
 
 [http://docs.oracle.com/javase/7/docs/api/java/lang/String.html](http://docs.oracle.com/javase/7/docs/api/java/lang/String.html)
 
+## Grading
+
+Remember : no mutable variables !
+There are several implementations possible for most questions. Sometimes using a specific method is mandatory (wordOccurences must use the 
+groupBy method). When you are free, try to find the simplest implementation !
+
+Points awarded for each method (this is also a hint about the complexity of the methods implementation) :
+
+* wordOccurences 3
+* sentenceOccurences 3
+* dictionaryByOccurrences 1
+* wordAnagrams 1
+* combinations 3
+* subtract 4
+* sentenceAnagrams 5
+
 ## The problem
 
 An anagram of a word is a rearrangement of its letters such that a word with a different meaning is formed. For example, if we rearrange the letters of the word `Elvis` we can obtain the word `lives`, which is one of its anagram.
@@ -50,11 +66,11 @@ Since we are ignoring the punctuation characters of the sentence as well as the 
 
     type Sentence = List[Word]
 
-We mentioned previously that we will transform words and sentences into occurrence lists. We represent the occurrence lists as sorted lists of character and integers pairs:
+We mentioned previously that we will transform words and sentences into occurrence lists. We represent the occurrence lists as *sorted* lists of character and integers pairs:
 
     type Occurrences = List[(Char, Int)]
 
-The list should be sorted by the characters in an ascending order. Since we ignore the character casing, all the characters in the occurrence list have to be lowercase. The integer in each pair denotes how often the character appears in a particular word or a sentence. This integer must be positive. Note that positive also means non-zero – characters that do not appear in the sentence do not appear in the occurrence list either.
+The list should be **sorted by the characters in an ascending order**. Since we ignore the character casing, all the characters in the occurrence list have to be lowercase. The integer in each pair denotes how often the character appears in a particular word or a sentence. This integer must be positive. Note that positive also means non-zero – characters that do not appear in the sentence do not appear in the occurrence list either.
 
 Finally, the dictionary of all the meaningful English words is represented as a `List` of words:
 
@@ -95,7 +111,9 @@ produces:
 
 In our case the collection will be a `Word` (i.e. a `String`) and its elements are characters, so the `groupBy` method takes a function mapping characters into a desired key type.
 
-In the first part of this exercise, we will implement the method `wordOccurrences` which, given a word produces its occurrence list. In one of the previous exercises we produced the occurrence list by recursively traversing a list of characters. This time we will use the `groupBy` method from the Collections API (hint: you may additionally use other methods, such as `map` and `toList`).
+In the first part of this exercise, we will implement the method `wordOccurrences` which, given a word produces its occurrence list. 
+We could produce the occurrence list by recursively traversing a list of characters. 
+This time we will use the `groupBy` method from the Collections API (hint: you may additionally use other methods, such as `map`, `toList`, `sorted`).
 
     def wordOccurrences(w: Word): Occurrences
 
@@ -154,17 +172,21 @@ For example, given two occurrence lists for words `lard` and `r`:
 
 the `subtract(x, y)` is `List(('a', 1), ('d', 1), ('l', 1))`.
 
-The precondition for the `subtract` method is that the occurrence list `y` is a subset of the occurrence list `x` – if the list `y` has some character then the frequency of that character in `x` must be greater or equal than the frequency of that character in `y`. When implementing `subtract` you can assume that `y` is a subset of `x`.
-
+The precondition for the `subtract` method is that the occurrence list `y` is a subset of the occurrence list `x` – if the list `y` has some character then the frequency of that character in `x` must be greater or equal than the frequency of that character in `y`. 
+When implementing `subtract` you can assume that `y` is a subset of `x`.
+Note: the resulting value is an occurrence - meaning it is *sorted*  and has no zero-entries.
+ 
 Hint: you can use `foldLeft`, and `-`, `apply` and `updated` operations on `Map`.
 
-Now we can finally implement our `sentenceAnagrams` method for sequences.
+Now we can finally implement our `sentenceAnagrams` method for sentences.
 
     def sentenceAnagrams(sentence: Sentence): List[Sentence]
 
 Note that the anagram of the empty sentence is the empty sentence itself.
 
 Hint: First of all, think about the recursive structure of the problem: what is the base case, and how should the result of a recursive invocation be integrated in each iteration? Also, using for-comprehensions helps in finding an elegant implementation for this method.
+Remember the introduction : we will transform the sentence into its occurrence list, then try to extract any subset of characters from it to see if we can form any meaningful words. 
+From the remaining characters we will solve the problem recursively and then combine all the meaningful words we have found with the recursive solution.
 
 Test the `sentenceAnagrams` method on short sentences, no more than 10 characters. The combinations space gets huge very quickly as your sentence gets longer, so the program may run for a very long time. However for sentences such as `Linux rulez`, `I love you` or `Mickey Mouse` the program should end fairly quickly – there are not many other ways to say these things.
 
