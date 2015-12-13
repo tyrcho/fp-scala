@@ -15,19 +15,20 @@ object CollectionsCombine {
   Nil.fold(1)(_ * _)                              //> res5: Int = 1
 
   (1 to 10).sum                                   //> res6: Int = 55
+  (1 to 10).product                               //> res7: Int = 3628800
 
   def lengthFun[T](xs: List[T]): Int =
     xs.foldRight(0) { (elt, length) =>
       1 + length
     }                                             //> lengthFun: [T](xs: List[T])Int
 
-  lengthFun(numbers)                              //> res7: Int = 10
+  lengthFun(numbers)                              //> res8: Int = 10
 
   def mapFun[T, U](xs: List[T], f: T => U): List[U] =
     xs.foldRight(List.empty[U]) { (elt, listRes) =>
       f(elt) :: listRes
     }                                             //> mapFun: [T, U](xs: List[T], f: T => U)List[U]
 
-  mapFun(numbers, (x: Int) => x + 3)              //> res8: List[Int] = List(4, 5, 6, 7, 8, 9, 10, 11, 12, 13)
+  mapFun(numbers, (x: Int) => x + 3)              //> res9: List[Int] = List(4, 5, 6, 7, 8, 9, 10, 11, 12, 13)
 
 }
