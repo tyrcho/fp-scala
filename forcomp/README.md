@@ -189,10 +189,3 @@ Remember the introduction : we will transform the sentence into its occurrence l
 From the remaining characters we will solve the problem recursively and then combine all the meaningful words we have found with the recursive solution.
 
 Test the `sentenceAnagrams` method on short sentences, no more than 10 characters. The combinations space gets huge very quickly as your sentence gets longer, so the program may run for a very long time. However for sentences such as `Linux rulez`, `I love you` or `Mickey Mouse` the program should end fairly quickly – there are not many other ways to say these things.
-
-## Further Improvement (Optional)
-
-The solution with enlisting all the combinations was concise, but it was not very efficient. The problem is that we have recomputed some anagrams more than once when recursively solving the problem. Think about a concrete example and a situation where you compute the anagrams of the same subset of an occurrence list multiple times.
-
-One way to improve the performance is to save the results obtained the first time when you compute the anagrams for an occurence list, and use the stored result if you need the same result a second time. Try to write a new method `sentenceAnagramsMemo` which does this.
-
