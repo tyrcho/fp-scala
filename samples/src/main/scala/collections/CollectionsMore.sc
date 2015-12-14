@@ -21,4 +21,8 @@ object CollectionsMore {
       case (x, y) => x * y
     }.sum                                         //> scalarProduct: (xs: Vector[Double], ys: Vector[Double])Double
 
+
+words.sorted                                      //> res6: List[String] = List(dog, fox, jumped, lazy, over, quick, the, the)
+
+words.sortBy(_.length)                            //> res7: List[String] = List(the, fox, the, dog, over, lazy, quick, jumped)
 }

@@ -2,19 +2,39 @@ package collections
 
 object Maps {
 
-  val groups = (1 to 10).groupBy(x => x % 3)      //> groups  : scala.collection.immutable.Map[Int,scala.collection.immutable.Index
-                                                  //| edSeq[Int]] = Map(2 -> Vector(2, 5, 8), 1 -> Vector(1, 4, 7, 10), 0 -> Vector
-                                                  //| (3, 6, 9))
-  groups.updated(2, Vector(2, 5, 8, 11))          //> res0: scala.collection.immutable.Map[Int,scala.collection.immutable.IndexedS
-                                                  //| eq[Int]] = Map(2 -> Vector(2, 5, 8, 11), 1 -> Vector(1, 4, 7, 10), 0 -> Vect
-                                                  //| or(3, 6, 9))
-  groups - 1                                      //> res1: scala.collection.immutable.Map[Int,scala.collection.immutable.IndexedS
-                                                  //| eq[Int]] = Map(2 -> Vector(2, 5, 8), 0 -> Vector(3, 6, 9))
-  groups(1)                                       //> res2: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 4, 7, 10)
-  groups.apply(1)                                 //> res3: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 4, 7, 10)
-  groups.get(1)                                   //> res4: Option[scala.collection.immutable.IndexedSeq[Int]] = Some(Vector(1, 4,
-                                                  //|  7, 10))
+  val romanNumerals = Map("I" -> 1, "V" -> 5, "X" -> 10)
+                                                  //> romanNumerals  : scala.collection.immutable.Map[String,Int] = Map(I -> 1, V -
+                                                  //| > 5, X -> 10)
+  romanNumerals("V")                              //> res0: Int = 5
 
-  groups.toList                                   //> res5: List[(Int, scala.collection.immutable.IndexedSeq[Int])] = List((2,Vect
-                                                  //| or(2, 5, 8)), (1,Vector(1, 4, 7, 10)), (0,Vector(3, 6, 9)))
+  val inverted = romanNumerals.map { case (rom, num) => (num, rom) }
+                                                  //> inverted  : scala.collection.immutable.Map[Int,String] = Map(1 -> I, 5 -> V,
+                                                  //|  10 -> X)
+
+  //romanNumerals("II")
+  romanNumerals.get("II")                         //> res1: Option[Int] = None
+  romanNumerals.get("I")                          //> res2: Option[Int] = Some(1)
+
+  val words = List("the", "quick", "fox", "jumped", "over", "the", "lazy", "dog")
+                                                  //> words  : List[String] = List(the, quick, fox, jumped, over, the, lazy, dog)
+                                                  //| 
+  words.groupBy(_.length)                         //> res3: scala.collection.immutable.Map[Int,List[String]] = Map(5 -> List(quick
+                                                  //| ), 4 -> List(over, lazy), 3 -> List(the, fox, the, dog), 6 -> List(jumped))
+                                                  //| 
+
+  val capitalOfCountry = Map("USA" -> "Washington", "Switzerland" -> "Bern")
+                                                  //> capitalOfCountry  : scala.collection.immutable.Map[String,String] = Map(USA 
+                                                  //| -> Washington, Switzerland -> Bern)
+  val capitals = capitalOfCountry.withDefaultValue("unknown")
+                                                  //> capitals  : scala.collection.immutable.Map[String,String] = Map(USA -> Washi
+                                                  //| ngton, Switzerland -> Bern)
+  capitals("France")                              //> res4: String = unknown
+  capitals.updated("France", "Paris")             //> res5: scala.collection.immutable.Map[String,String] = Map(USA -> Washington,
+                                                  //|  Switzerland -> Bern, France -> Paris)
+  capitals + ("France" -> "Paris")                //> res6: scala.collection.immutable.Map[String,String] = Map(USA -> Washington,
+                                                  //|  Switzerland -> Bern, France -> Paris)
+
+  capitals - "USA"                                //> res7: scala.collection.immutable.Map[String,String] = Map(Switzerland -> Ber
+                                                  //| n)
+
 }
