@@ -12,8 +12,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<scala.version>2.11.7</scala.version>
-		<java.version>1.7</java.version>
+		<scala.version>2.11.8</scala.version>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
 	</properties>
 
 	<modules>
@@ -29,12 +30,6 @@
 				<artifactId>scala-library</artifactId>
 				<groupId>org.scala-lang</groupId>
 				<version>${scala.version}</version>
-			</dependency>
-
-			<dependency>
-				<artifactId>scala-parser-combinators_2.11</artifactId>
-				<groupId>org.scala-lang.modules</groupId>
-				<version>1.0.2</version>
 			</dependency>
 
 			<!-- tests -->
@@ -59,24 +54,22 @@
 				<plugin>
 					<groupId>net.alchim31.maven</groupId>
 					<artifactId>scala-maven-plugin</artifactId>
-					<version>3.1.6</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.3</version>
-					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
-					</configuration>
+					<version>3.2.0</version>
 					<executions>
 						<execution>
-							<phase>compile</phase>
 							<goals>
 								<goal>compile</goal>
+								<goal>testCompile</goal>
 							</goals>
 						</execution>
 					</executions>
+					<configuration>
+						<args>
+							<arg>-make:transitive</arg>
+							<arg>-dependencyfile</arg>
+							<arg>${project.build.directory}/.scala_dependencies</arg>
+						</args>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
