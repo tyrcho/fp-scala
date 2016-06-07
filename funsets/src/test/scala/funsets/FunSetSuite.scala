@@ -33,10 +33,10 @@ class FunSetSuite extends FlatSpec with Matchers {
    * abstract classes), and create an instance inside each test method.
    */
   trait TestSets {
-    val s1 = singletonSet(1)
-    val s2 = singletonSet(2)
-    val s3 = singletonSet(3)
-    val s4 = singletonSet(4)
+    val s1 = singleElementSet(1)
+    val s2 = singleElementSet(2)
+    val s3 = singleElementSet(3)
+    val s4 = singleElementSet(4)
   }
 
   "singletonSet" should "contain one element" in {
