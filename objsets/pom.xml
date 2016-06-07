@@ -17,12 +17,19 @@
 			<groupId>org.scala-lang</groupId>
 		</dependency>
 
+		<dependency> <!-- needed for JSON parsing -->
+			<artifactId>scala-parser-combinators_2.11</artifactId>
+			<groupId>org.scala-lang.modules</groupId>
+			<version>1.0.2</version>
+		</dependency>
+
 		<!-- tests -->
 		<dependency>
 			<groupId>org.scalatest</groupId>
 			<artifactId>scalatest_2.11</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<artifactId>junit</artifactId>
 			<groupId>junit</groupId>
