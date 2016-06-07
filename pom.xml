@@ -19,6 +19,7 @@
 
 	<modules>
 		<module>samples</module>
+		<module>practice</module>
 		<module>recursivity</module>
 		<module>funsets</module>
 		<module>objsets</module>
