@@ -5,6 +5,8 @@
 .project
 .settings/
 
+.idea
+
 *~
 
 # sbt specific
