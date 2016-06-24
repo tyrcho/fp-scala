@@ -23,6 +23,7 @@
 		<module>recursivity</module>
 		<module>funsets</module>
 		<module>objsets</module>
+		<module>forcomp</module>
 	</modules>
 
 	<dependencyManagement>
