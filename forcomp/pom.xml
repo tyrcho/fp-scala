@@ -9,21 +9,18 @@
 		<version>0.1-SNAPSHOT</version>
 		<artifactId>fp-parent</artifactId>
 	</parent>
-	<artifactId>forcomp</artifactId>
+	<artifactId>fp-forcomp</artifactId>
 
 	<packaging>jar</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<scala.version>2.11.7</scala.version>
-		<java.version>1.7</java.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<artifactId>scala-library</artifactId>
 			<groupId>org.scala-lang</groupId>
-			<version>${scala.version}</version>
 		</dependency>
 
 
