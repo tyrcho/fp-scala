@@ -47,6 +47,8 @@ Let’s start by implementing basic functions on FunSets.
         def union(s: FunSet, t: FunSet): FunSet
         def intersect(s: FunSet, t: FunSet): FunSet
         def diff(s: FunSet, t: FunSet): FunSet.
+
+![](images/union-intersect.png)        
         
 3.  Define the function `filter` which selects only the elements of a FunSet that are accepted by a given predicate `p`. The filtered elements are returned as a new FunSet. The signature of `filter` is as follows:
 
@@ -75,9 +77,15 @@ Note that there is no direct way to find which elements are in a FunSet. `contai
 2.  Using `forall`, implement a function `exists` which tests whether a FunSet contains at least one element for which the given predicate is true. Note that the functions `forall` and `exists` behave like the universal and existential quantifiers of first-order logic.
 
         def exists(s: FunSet, p: Int => Boolean): Boolean
+
+*Hint* ([wikipedia](https://en.wikipedia.org/wiki/Existential_quantification#Negation)): the negation of a propositional function's existential quantification is a universal quantification of that propositional function's negation; symbolically,
+: ¬∃x∈X, P(x) ↔ ∀x∈X, ¬P(x)
+
 3.  Finally, write a function `map` which transforms a given FunSet into another one by applying to each of its elements the given function. `map` has the following signature:
 
         def map(s: FunSet, f: Int => Int): FunSet
+
+![](images/map.gif)   
 
 ## Extra Hints
 
