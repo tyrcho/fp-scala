@@ -22,6 +22,7 @@
 		<module>practice</module>
 		<module>recursivity</module>
 		<module>funsets</module>
+		<module>exercises</module>
 		<module>objsets</module>
 		<module>forcomp</module>
 	</modules>
