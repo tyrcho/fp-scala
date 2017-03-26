@@ -12,6 +12,7 @@ object MoviesUtil {
   // Hint : filter
   def findTitlesByYear(year: String): Vector[String] =
     ???
+  // rewrite later with a for expression
 
   // Hint : filter
   def findMoviesWithRatingAtLeast(rating: Float): Vector[Movie] =
@@ -38,6 +39,12 @@ object MoviesUtil {
 
   def actorsInMovie(title: String) =
     ???
+
+  def actorsInMoviePart(part: String): Vector[Actor] = {
+    //Hint : filter, exists
+    ???
+    // rewrite later with a for expression (hint : also use distinct)   
+  }
 
   def moviesWith(actorName: String): Vector[Movie] = {
     // Hint : filter, pattern matching on actorByName
@@ -79,5 +86,4 @@ object MoviesUtil {
   def bestMovie(actorName: String): Option[Movie] = {
     ???
   }
-
 }

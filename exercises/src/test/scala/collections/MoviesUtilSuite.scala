@@ -60,6 +60,10 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
       Movie("The Godfather: Part II (1974)", 9.0f))
   }
 
+  "176 actors" should "have played in an 'Lord of the Rings' movie" in {
+    actorsInMoviePart("Lord of the Rings") should have size 176
+  }
+
   "Matt Damon" should "have played in 5 good movies" in {
     moviesWith("Damon, Matt").map(_.title) should contain only (
       "Saving Private Ryan (1998)",
