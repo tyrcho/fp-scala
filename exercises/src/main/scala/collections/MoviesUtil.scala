@@ -12,7 +12,7 @@ object MoviesUtil {
   // Hint : filter
   def findTitlesByYear(year: String): Vector[String] =
     ???
-  // rewrite later with a for expression
+  // 2. rewrite later with a for expression
 
   // Hint : filter
   def findMoviesWithRatingAtLeast(rating: Float): Vector[Movie] =
@@ -37,18 +37,24 @@ object MoviesUtil {
     // 3. optimize with find
   }
 
-  def actorsInMovie(title: String) =
+  // Hint : same as previous
+  def movieByTitle(title: String) = {
+    ???
+  }
+
+  def actorsInMovie(title: String): Vector[Actor] =
     ???
 
   def actorsInMoviePart(part: String): Vector[Actor] = {
-    //Hint : filter, exists
+    // Hint : filter, exists
     ???
-    // rewrite later with a for expression (hint : also use distinct)   
+    // 2. rewrite with a for expression (hint : also use distinct)
   }
 
   def moviesWith(actorName: String): Vector[Movie] = {
     // Hint : filter, pattern matching on actorByName
     ???
+    //    2. rewrite with a for comprehension
   }
 
   // Hint : ++, distinct 
@@ -58,31 +64,44 @@ object MoviesUtil {
   // Hint : map
   def titlesWith(actorName: String): Vector[String] =
     ???
+  // rewrite later with a for expression (hint : also use distinct)   
 
-  // Hint : filter, forall /!\
+  //Hint : map, mkString
+  def csv(movies: Vector[Movie]) = {
+    movies.map(_.title).mkString(", ")
+  }
+
+  // Hint : ++, distinct (reuse titlesWith) 
+  def titlesWithAny(actorName1: String, actorName2: String): Vector[String] =
+    ???
+
+  // Hint : filter, forall /!\ (reuse titlesWith)
   def moviesWithAll(actorNames: Vector[String]): Vector[Movie] =
     ???
 
   def moviesWithAny(actorNames: Vector[String]): Vector[Movie] = {
     // Hint : filter, exists 
     ???
-
     // 2. Rewrite using map, flatten and distinct instead
 
     // 3. Rewrite using flatMap and distinct instead
   }
 
-  // Hint : map, max 
+  // Hint : map (reuse moviesWithAll)
+  def titlesWithAll(actorNames: Vector[String]): Vector[String] =
+    moviesWithAll(actorNames).map(_.title)
+
+  // Hint : map, max (reuse moviesWith)
   def maxRating(actorName: String): Float = {
     ???
   }
 
-  // Hint : map, sum, size 
+  // Hint : map, sum, size (reuse moviesWith)
   def avgRating(actorName: String): Float = {
     ???
   }
 
-  // Hint : maxBy, isEmpty
+  // Hint : maxBy, isEmpty (reuse moviesWith)
   def bestMovie(actorName: String): Option[Movie] = {
     ???
   }
