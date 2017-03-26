@@ -9,7 +9,7 @@ object ListSort {
 
   def insert(x: Int, xs: List[Int]): List[Int] =
     xs match {
-      case Nil => ???
+      case Nil    => ???
       case h :: t => ???
     }
 }

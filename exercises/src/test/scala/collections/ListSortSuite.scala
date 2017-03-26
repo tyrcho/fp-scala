@@ -1,3 +1,4 @@
+
 package collections
 
 import org.scalatest.FunSuite
@@ -27,4 +28,3 @@ class ListSortSuite extends FlatSpec with Matchers {
   }
 
 }
-
