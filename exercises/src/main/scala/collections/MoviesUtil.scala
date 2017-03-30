@@ -67,9 +67,8 @@ object MoviesUtil {
   // rewrite later with a for expression (hint : also use distinct)   
 
   //Hint : map, mkString
-  def csv(movies: Vector[Movie]) = {
-    movies.map(_.title).mkString(", ")
-  }
+  def csv(movies: Vector[Movie]) = 
+    ???
 
   // Hint : ++, distinct (reuse titlesWith) 
   def titlesWithAny(actorName1: String, actorName2: String): Vector[String] =
@@ -89,7 +88,7 @@ object MoviesUtil {
 
   // Hint : map (reuse moviesWithAll)
   def titlesWithAll(actorNames: Vector[String]): Vector[String] =
-    moviesWithAll(actorNames).map(_.title)
+    ???
 
   // Hint : map, max (reuse moviesWith)
   def maxRating(actorName: String): Float = {
