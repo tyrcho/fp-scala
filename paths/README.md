@@ -15,33 +15,6 @@ for example, all the possible ways to go to Paris from Marseille with all interm
 
 We suppose the API produce **only valid paths**, no need to implement any validation on the paths.
 
-## The API
-
-![Alt text](https://g.gravizo.com/g?
-/** @opt all */
-class Point {
-  public int x;
-  public int y;
-}
-/** @opt all */
-class Segment {
-  public Point origin;
-  public Point destination;
-  public double length;
-}
-/** @opt all */
-class Path {
-  public List segments;
-  public double length;
-  public List stops;
-}
-/** @opt all */
-class PathList {
-  public List paths;
-  public Path shortestPath;
-}
-)
-
 ## Use Cases
 
 You are suggested to use [Scala test](http://www.scalatest.org/) to write your test cases.
@@ -50,7 +23,7 @@ Here is a suggested, step-by-step approach to implement all features :
 
 ### Compute the length of a segment
 
-The length is the euclidean distance between origin and destination `sqrt[(x1 - x2)² + (y1 - y2)²]`.
+The length is the euclidean distance between origin and destination `sqrt[(x1 - x2)Â² + (y1 - y2)Â²]`.
 
 Tests :
 
