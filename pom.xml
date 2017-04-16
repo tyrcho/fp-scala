@@ -25,6 +25,7 @@
 		<module>exercises</module>
 		<module>objsets</module>
 		<module>forcomp</module>
+		<module>paths</module>
 	</modules>
 
 	<dependencyManagement>
