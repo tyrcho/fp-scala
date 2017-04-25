@@ -3,15 +3,15 @@ package moviesdb
 case class Movie(title: String, rating: Float)
 
 object Movies {
-  val movies: Vector[Movie] = data.split("\n").toVector.map(_.split("\\s+").drop(3).toSeq).collect {
-    case Seq(r, s @ _*) => Movie(s.mkString(" "), r.toFloat)
+  val movies: Vector[Movie] = data.split("\n").toVector.map(_.split("\\s+").drop(3).toList).collect {
+    case r :: s => Movie(s.mkString(" "), r.toFloat)
   }
 
   val titles: Vector[String] = movies.map(_.title)
 
   private[moviesdb] lazy val moviesMap = movies.map(m => m.title -> m).toMap
 
-  def data = """ 
+  def data = """
       0000000125  1786238   9.3  The Shawshank Redemption (1994)
       0000000125  1219308   9.2  The Godfather (1972)
       0000000124  838449   9.0  The Godfather: Part II (1974)
