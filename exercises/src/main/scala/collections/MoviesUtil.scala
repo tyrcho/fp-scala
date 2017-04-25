@@ -7,40 +7,40 @@ import moviesdb._
 object MoviesUtil {
   // Hint : contains
   def isInTop250(title: String): Boolean =
-    titles.contains(title)
+    ???
 
   // Hint : filter
   def findTitlesByYear(year: String): Vector[String] =
-    titles.filter(t => t.contains(year))
+    ???
   // 2. rewrite later with a for expression
 
   // Hint : filter
   def findMoviesWithRatingAtLeast(rating: Float): Vector[Movie] =
-    movies.filter(m => m.rating >= rating)
+    ???
 
   // Hint : partition
   def partitionMoviesAtRating(rating: Float): (Vector[Movie], Vector[Movie]) =
-    movies.partition(m => m.rating <= rating)
+    ???
 
   // Hint : maxBy
   def bestMovie: Movie =
     //    movies.sortBy(m => m.rating).last
-    movies.maxBy(m => m.rating)
+    ???
 
   // Hint : sortBy, reverse, take
   def topMovies(n: Int): Vector[Movie] =
-    movies.sortBy(m => -m.rating).take(n)
+    ???
 
   def actorByName(actorName: String) = {
     // Hint : filter, head
-    actors.find(a => a.name == actorName)
+    ???
     // 2. what happens if no actor is found ? use headOption instead
     // 3. optimize with find
   }
 
   // Hint : same as previous
   def movieByTitle(title: String) = {
-    movies.find(m => m.title == title)
+    ???
   }
 
   def actorsInMovie(title: String): Vector[Actor] =
@@ -68,7 +68,7 @@ object MoviesUtil {
   // rewrite later with a for expression (hint : also use distinct)
 
   //Hint : map, mkString
-  def csv(movies: Vector[Movie]): String = 
+  def csv(movies: Vector[Movie]): String =
     ???
 
   // Hint : ++, distinct (reuse titlesWith)
