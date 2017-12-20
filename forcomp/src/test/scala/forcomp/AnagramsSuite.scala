@@ -1,13 +1,8 @@
 package forcomp
 
+import forcomp.Anagrams._
 import org.scalatest.FunSuite
 
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-
-import Anagrams._
-
-@RunWith(classOf[JUnitRunner])
 class AnagramsSuite extends FunSuite {
 
   test("wordOccurrences: abcd") {

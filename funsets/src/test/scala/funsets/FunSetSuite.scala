@@ -1,11 +1,7 @@
 package funsets
 
-import org.junit.runner.RunWith
-import org.scalatest.{ Finders, FlatSpec, Matchers }
-import FunSets._
-import org.scalatest.junit.JUnitRunner
+import org.scalatest.{FlatSpec, Matchers}
 
-@RunWith(classOf[JUnitRunner])
 class FunSetSuite extends FlatSpec with Matchers {
 
   import FunSets._
@@ -16,22 +12,22 @@ class FunSetSuite extends FlatSpec with Matchers {
   }
 
   /**
-   * When writing tests, one would often like to re-use certain values for multiple
-   * tests. For instance, we would like to create an Int-set and have multiple test
-   * about it.
-   *
-   * Instead of copy-pasting the code for creating the set into every test, we can
-   * store it in the test class using a val:
-   *
-   *   val s1 = singletonSet(1)
-   *
-   * However, what happens if the method "singletonSet" has a bug and crashes? Then
-   * the test methods are not even executed, because creating an instance of the
-   * test class fails!
-   *
-   * Therefore, we put the shared values into a separate trait (traits are like
-   * abstract classes), and create an instance inside each test method.
-   */
+    * When writing tests, one would often like to re-use certain values for multiple
+    * tests. For instance, we would like to create an Int-set and have multiple test
+    * about it.
+    *
+    * Instead of copy-pasting the code for creating the set into every test, we can
+    * store it in the test class using a val:
+    *
+    * val s1 = singletonSet(1)
+    *
+    * However, what happens if the method "singletonSet" has a bug and crashes? Then
+    * the test methods are not even executed, because creating an instance of the
+    * test class fails!
+    *
+    * Therefore, we put the shared values into a separate trait (traits are like
+    * abstract classes), and create an instance inside each test method.
+    */
   trait TestSets {
     val s1 = singleElementSet(1)
     val s2 = singleElementSet(2)
@@ -41,14 +37,14 @@ class FunSetSuite extends FlatSpec with Matchers {
 
   "singletonSet" should "contain one element" in {
     /**
-     * We create a new instance of the "TestSets" trait, this gives us access
-     * to the values "s1" to "s3".
-     */
+      * We create a new instance of the "TestSets" trait, this gives us access
+      * to the values "s1" to "s3".
+      */
     new TestSets {
       /**
-       * The string argument of "assert" is a message that is printed in case
-       * the test fails. This helps identifying which assertion failed.
-       */
+        * The string argument of "assert" is a message that is printed in case
+        * the test fails. This helps identifying which assertion failed.
+        */
       assert(contains(s1, 1), "Singleton")
     }
   }
@@ -87,7 +83,7 @@ class FunSetSuite extends FlatSpec with Matchers {
     }
   }
 
-  
+
   "diff of (1, 2) and (2, 3)" should "contain only (1)" in {
     new TestSetsUnion {
       val difference = diff(s12, s23)
@@ -118,8 +114,8 @@ class FunSetSuite extends FlatSpec with Matchers {
       forall(s1234, x => x < 5) shouldBe true
     }
   }
-  
-   "forall of (1, 2, 3, 4) for large numbers" should "be false" in {
+
+  "forall of (1, 2, 3, 4) for large numbers" should "be false" in {
     new TestSetsUnion {
       forall(s1234, x => x > 5) shouldBe false
     }

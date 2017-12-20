@@ -1,15 +1,9 @@
 
 package collections
 
-import org.scalatest.FunSuite
+import collections.Pack._
+import org.scalatest.{FlatSpec, Matchers}
 
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import org.scalatest.Matchers
-import org.scalatest.FlatSpec
-import Pack._
-
-@RunWith(classOf[JUnitRunner])
 class PackSuite extends FlatSpec with Matchers {
   "pack" should "group elements" in {
     pack(List(1, 1, 1, 2, 3, 3, 1)) shouldBe

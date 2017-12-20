@@ -1,12 +1,9 @@
 package recursivity
 
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import org.scalatest.Matchers
-import org.scalatest.FlatSpec
+import org.scalatest.{FlatSpec, Matchers}
 
-@RunWith(classOf[JUnitRunner])
 class ParenthesisSuite extends FlatSpec with Matchers {
+
   import Parenthesis.balance
 
   it should "check parenthesis in code" in {

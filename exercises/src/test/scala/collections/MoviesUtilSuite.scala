@@ -1,15 +1,9 @@
 package collections
 
-import org.scalatest.FunSuite
-
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import org.scalatest.Matchers
-import org.scalatest.FlatSpec
-import MoviesUtil._
+import collections.MoviesUtil._
 import moviesdb._
+import org.scalatest.{FlatSpec, Matchers}
 
-@RunWith(classOf[JUnitRunner])
 class MoviesUtilSuite extends FlatSpec with Matchers {
   "top 250" should "include Forrest Gump" in {
     isInTop250("Forrest Gump (1994)") shouldBe true
@@ -24,7 +18,7 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
   }
 
   "9 movies" should "be from 1995" in {
-    findTitlesByYear("1995") should contain only (
+    findTitlesByYear("1995") should contain only(
       "Se7en (1995)",
       "The Usual Suspects (1995)",
       "Braveheart (1995)",
@@ -37,7 +31,7 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
   }
 
   "3 movies" should "have rating >= 9" in {
-    findMoviesWithRatingAtLeast(9) should contain only (
+    findMoviesWithRatingAtLeast(9) should contain only(
       Movie("The Shawshank Redemption (1994)", 9.3f),
       Movie("The Godfather (1972)", 9.2f),
       Movie("The Godfather: Part II (1974)", 9.0f))
@@ -77,7 +71,7 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
   }
 
   "Matt Damon" should "have played in 5 good titles" in {
-    titlesWith("Damon, Matt") should contain only (
+    titlesWith("Damon, Matt") should contain only(
       "Saving Private Ryan (1998)",
       "Interstellar (2014)",
       "The Departed (2006)",
@@ -100,7 +94,7 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
   }
 
   "Matt Damon" should "have played in 5 good movies" in {
-    moviesWith("Damon, Matt").map(_.title) should contain only (
+    moviesWith("Damon, Matt").map(_.title) should contain only(
       "Saving Private Ryan (1998)",
       "Interstellar (2014)",
       "The Departed (2006)",

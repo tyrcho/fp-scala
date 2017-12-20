@@ -1,14 +1,8 @@
 package patmat
 
-import org.scalatest.FunSuite
+import org.scalatest.{FlatSpec, Matchers}
+import patmat.Simplifications._
 
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import org.scalatest.Matchers
-import org.scalatest.FlatSpec
-import Simplifications._
-
-@RunWith(classOf[JUnitRunner])
 class SimplificationsSuite extends FlatSpec with Matchers {
   val five = Number(5)
   val three = Number(3)

@@ -4,39 +4,27 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<artifactId>fp-paths</artifactId>
+
+
 	<parent>
 		<groupId>info.daviot</groupId>
 		<version>0.1-SNAPSHOT</version>
 		<artifactId>fp-parent</artifactId>
 	</parent>
-	<artifactId>fp-paths</artifactId>
-
-	<packaging>jar</packaging>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<scala.version>2.11.8</scala.version>
-		<java.version>1.8</java.version>
-	</properties>
 
 	<dependencies>
-
 		<dependency>
 			<artifactId>scala-library</artifactId>
 			<groupId>org.scala-lang</groupId>
 		</dependency>
 
-		<!-- tests -->
 		<dependency>
 			<groupId>org.scalatest</groupId>
-			<artifactId>scalatest_2.11</artifactId>
+			<artifactId>scalatest_2.12</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<artifactId>junit</artifactId>
-			<groupId>junit</groupId>
-			<scope>test</scope>
-		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -46,6 +34,10 @@
 			<plugin>
 				<groupId>net.alchim31.maven</groupId>
 				<artifactId>scala-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.scalatest</groupId>
+				<artifactId>scalatest-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

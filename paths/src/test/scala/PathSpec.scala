@@ -1,9 +1,5 @@
-import org.junit.runner.RunWith
-import org.scalatest.FlatSpec
-import org.scalatest.Matchers
-import org.scalatest.junit.JUnitRunner
+import org.scalatest.{FlatSpec, Matchers}
 
-@RunWith(classOf[JUnitRunner])
 class PathSpec extends FlatSpec with Matchers {
 
   val tl = Point("tl", 0, -10)

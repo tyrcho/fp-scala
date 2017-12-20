@@ -4,12 +4,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<artifactId>fp-samples</artifactId>
+
+
 	<parent>
 		<groupId>info.daviot</groupId>
 		<version>0.1-SNAPSHOT</version>
 		<artifactId>fp-parent</artifactId>
 	</parent>
-	<artifactId>fp-samples</artifactId>
 
 	<dependencies>
 		<dependency>
@@ -17,17 +19,12 @@
 			<groupId>org.scala-lang</groupId>
 		</dependency>
 
-		<!-- tests -->
 		<dependency>
 			<groupId>org.scalatest</groupId>
-			<artifactId>scalatest_2.11</artifactId>
+			<artifactId>scalatest_2.12</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<artifactId>junit</artifactId>
-			<groupId>junit</groupId>
-			<scope>test</scope>
-		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -37,6 +34,10 @@
 			<plugin>
 				<groupId>net.alchim31.maven</groupId>
 				<artifactId>scala-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.scalatest</groupId>
+				<artifactId>scalatest-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

@@ -1,15 +1,9 @@
 
 package collections
 
-import org.scalatest.FunSuite
+import collections.ListSort._
+import org.scalatest.{FlatSpec, Matchers}
 
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import org.scalatest.Matchers
-import org.scalatest.FlatSpec
-import ListSort._
-
-@RunWith(classOf[JUnitRunner])
 class ListSortSuite extends FlatSpec with Matchers {
   it should "sort the empty list" in {
     isort(Nil) shouldBe Nil

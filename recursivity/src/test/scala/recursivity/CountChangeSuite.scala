@@ -1,12 +1,9 @@
 package recursivity
 
-import org.junit.runner.RunWith
-import org.scalatest.{Finders, FlatSpec, Matchers}
-import CountChange.countChange
-import org.scalatest.junit.JUnitRunner
+import org.scalatest.{FlatSpec, Matchers}
 
-@RunWith(classOf[JUnitRunner])
 class CountChangeSuite extends FlatSpec with Matchers {
+
   import CountChange.countChange
 
   it should "count change with 2 coins" in {

@@ -1,15 +1,9 @@
 
 package streams
-import IntStreams._
 
-import org.scalatest.FunSuite
+import org.scalatest.{FlatSpec, Matchers}
+import streams.IntStreams._
 
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import org.scalatest.Matchers
-import org.scalatest.FlatSpec
-
-@RunWith(classOf[JUnitRunner])
 class IntStreamsSuite extends FlatSpec with Matchers {
   "ones" should "contain only 1 and be infinite" in {
     ones.take(10) should contain only 1
@@ -48,7 +42,7 @@ class IntStreamsSuite extends FlatSpec with Matchers {
   "unfold" should "produce the same fibonacci numbers" in {
     val myFibs = unfold((0, 1)) {
       case (a, b) if a + b > 0 => Some((a, (b, a + b)))
-      case _                   => None
+      case _ => None
     }
     myFibs.take(45) should contain theSameElementsInOrderAs fibs.take(45)
   }

@@ -12,7 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<scala.version>2.11.8</scala.version>
+		<scala.version>2.12.3</scala.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -39,14 +39,8 @@
 			<!-- tests -->
 			<dependency>
 				<groupId>org.scalatest</groupId>
-				<artifactId>scalatest_2.11</artifactId>
-				<version>2.2.2</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<artifactId>junit</artifactId>
-				<groupId>junit</groupId>
-				<version>4.10</version>
+				<artifactId>scalatest_2.12</artifactId>
+				<version>3.0.4</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
@@ -58,12 +52,45 @@
 				<plugin>
 					<groupId>net.alchim31.maven</groupId>
 					<artifactId>scala-maven-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>3.2.2</version>
 					<executions>
 						<execution>
+							<id>scala-compile</id>
+							<phase>process-resources</phase>
 							<goals>
+								<goal>add-source</goal>
 								<goal>compile</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>scala-test-compile</id>
+							<phase>process-test-resources</phase>
+							<goals>
+								<goal>add-source</goal>
 								<goal>testCompile</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- disable surefire -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.7</version>
+					<configuration>
+						<skipTests>true</skipTests>
+					</configuration>
+				</plugin>
+				<!-- enable scalatest -->
+				<plugin>
+					<groupId>org.scalatest</groupId>
+					<artifactId>scalatest-maven-plugin</artifactId>
+					<version>1.0</version>
+					<executions>
+						<execution>
+							<id>scalatest</id>
+							<goals>
+								<goal>test</goal>
 							</goals>
 						</execution>
 					</executions>
