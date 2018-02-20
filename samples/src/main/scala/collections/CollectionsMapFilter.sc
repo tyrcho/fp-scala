@@ -1,5 +1,3 @@
-
-
 val words = List("the", "quick", "fox", "jumped", "over", "the", "lazy", "dog")
 
 

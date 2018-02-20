@@ -22,14 +22,14 @@ object Rationals3 {
     override def toString = numer + "/" + denom
   }
 
-  val x = new Rational(1, 3) //> x  : samples.Rationals3.Rational = 1/3
-  val y = new Rational(5, 7) //> y  : samples.Rationals3.Rational = 5/7
-  val z = new Rational(3, 2) //> z  : samples.Rationals3.Rational = 3/2
+  val x = new Rational(1, 3)
+  val y = new Rational(5, 7)
+  val z = new Rational(3, 2)
 
-  x.add(y).mul(z) //> res0: samples.Rationals3.Rational = 11/7
-  (x add y) mul z //> res1: samples.Rationals3.Rational = 11/7
+  x.add(y).mul(z)
+  (x add y) mul z
 
-  (x + y) * z //> res2: samples.Rationals3.Rational = 11/7
+  (x + y) * z
 
 
 }

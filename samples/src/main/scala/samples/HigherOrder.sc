@@ -1,29 +1,26 @@
 
-object HigherOrder {
 
-  def sumAll(n: Int): Int =
-    if (n == 0) 0
-    else n + sumAll(n - 1) //> sumAll: (n: Int)Int
+def sumAll(n: Int): Int =
+  if (n == 0) 0
+  else n + sumAll(n - 1)
 
-  sumAll(10) //> res0: Int = 55
+sumAll(10)
 
-  def sumSquares(n: Int): Int =
-    if (n == 0) 0
-    else n * n + sumSquares(n - 1) //> sumSquares: (n: Int)Int
+def sumSquares(n: Int): Int =
+  if (n == 0) 0
+  else n * n + sumSquares(n - 1)
 
-  sumSquares(10) //> res1: Int = 385
+sumSquares(10)
 
-  def sum(f: Int => Int, n: Int): Int =
-    if (n == 0) 0
-    else f(n) + sum(f, n - 1) //> sum: (f: Int => Int, n: Int)Int
+def sum(f: Int => Int, n: Int): Int =
+  if (n == 0) 0
+  else f(n) + sum(f, n - 1)
 
-  def sumAll2(n: Int) = sum(identity, n) //> sumAll2: (n: Int)Int
+def sumAll2(n: Int) = sum(identity, n)
 
-  def cube(x: Int): Int = x * x * x //> cube: (x: Int)Int
+def cube(x: Int): Int = x * x * x
 
-  def sumCubes(n: Int) = sum(cube, n) //> sumCubes: (n: Int)Int
-  // desugars to : def sumCubes(n: Int) = sum({ def c(x: Int) = x * x * x; c }, n)
+def sumCubes(n: Int) = sum(cube, n)
 
-  sumCubes(10) //> res2: Int = 3025
-}
 
+sumCubes(10)

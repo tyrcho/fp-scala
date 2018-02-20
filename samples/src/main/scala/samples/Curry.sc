@@ -1,39 +1,27 @@
 
-object Curry {
+def sum(f: Int => Int)(n: Int): Int =
+  if (n == 0) 0
+  else f(n) + sum(f)(n - 1)
 
-  // def sum(f: Int => Int): Int => Int = {
-  //  def sumF(n: Int): Int =
-  //      if (n == 0) 0
-  // else f(n) + sumF(n - 1)
-  // sumF
-  //}
+def sumAll = sum(identity) _
 
-  def sum(f: Int => Int)(n: Int): Int =
-    if (n == 0) 0
-    else f(n) + sum(f)(n - 1) //> sum: (f: Int => Int)(n: Int)Int
+sum _
 
-  def sumAll = sum(identity) _ //> sumAll: => Int => Int
+sumAll(10)
 
-  sum _ //> res0: (Int => Int) => (Int => Int) = <function1>
+def cube(x: Int): Int = x * x * x
 
-  sumAll(10) //> res1: Int = 55
+def sumCubes = sum(cube) _
 
-  def cube(x: Int): Int = x * x * x //> cube: (x: Int)Int
+sumCubes(3)
 
-  def sumCubes = sum(cube) _ //> sumCubes: => Int => Int
+sum(x => x * x)(10)
 
-  sumCubes(3) //> res2: Int = 36
+def sumt(f: Int => Int)(n: Int): Int = {
 
-  sum(x => x * x)(10) //> res3: Int = 385
+  def loop(n: Int, total: Int): Int =
+    if (???) ???
+    else loop(???, ???)
 
-  def sumt(f: Int => Int)(n: Int): Int = {
-
-    def loop(n: Int, total: Int): Int =
-      if (???) ???
-      else loop(???, ???)
-
-    loop(???, ???)
-  } //> sumt: (f: Int => Int)(n: Int)Int
-
-  // sumt(x => x * x)(10)
+  loop(???, ???)
 }
