@@ -1,38 +1,34 @@
-package collections
 
-object CollectionsBasic {
+val words = List("the", "quick", "fox", "jumped", "over")
 
-  val words = List("the", "quick", "fox", "jumped", "over")
-                                                  //> words  : List[String] = List(the, quick, fox, jumped, over)
-  words.length                                    //> res0: Int = 5
-  words(2)                                        //> res1: String = fox
+words.length
+words(2)
 
-  words.mkString(" ")                             //> res2: String = the quick fox jumped over
+words.mkString(" ")
 
-  words.head                                      //> res3: String = the
-  words.tail                                      //> res4: List[String] = List(quick, fox, jumped, over)
+words.head
+words.tail
 
-  words.last                                      //> res5: String = over
-  words.init                                      //> res6: List[String] = List(the, quick, fox, jumped)
+words.last
+words.init
 
-  words.reverse                                   //> res7: List[String] = List(over, jumped, fox, quick, the)
-  words.updated(0, "a")                           //> res8: List[String] = List(a, quick, fox, jumped, over)
-  words.contains("the")                           //> res9: Boolean = true
-  words.contains("a")                             //> res10: Boolean = false
+words.reverse
+words.updated(0, "a")
+words.contains("the")
+words.contains("a")
 
-  val words2 = List("the", "lazy", "dog")         //> words2  : List[String] = List(the, lazy, dog)
-  val phrase = words ++ words2                    //> phrase  : List[String] = List(the, quick, fox, jumped, over, the, lazy, dog)
-                                                  //| 
-  phrase.take(3)                                  //> res11: List[String] = List(the, quick, fox)
-  phrase.drop(3)                                  //> res12: List[String] = List(jumped, over, the, lazy, dog)
+val words2 = List("the", "lazy", "dog")
+val phrase = words ++ words2
 
-  words.sorted                                    //> res13: List[String] = List(fox, jumped, over, quick, the)
-  words.sortBy(w => w.length)                     //> res14: List[String] = List(the, fox, over, quick, jumped)
+phrase.take(3)
+phrase.drop(3)
 
-  words.distinct                                  //> res15: List[String] = List(the, quick, fox, jumped, over)
+words.sorted
+words.sortBy(w => w.length)
 
-  val (short, long) = phrase.partition(w => w.length <= 3)
-                                                  //> short  : List[String] = List(the, fox, the, dog)
-                                                  //| long  : List[String] = List(quick, jumped, over, lazy)
+words.distinct
 
-}
+val (short, long) = phrase.partition(w => w.length <= 3)
+
+
+

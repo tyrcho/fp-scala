@@ -1,4 +1,3 @@
-package samples
 
 object HigherOrder {
 
@@ -27,3 +26,4 @@ object HigherOrder {
 
   sumCubes(10) //> res2: Int = 3025
 }
+

@@ -1,34 +1,30 @@
-package collections
 
-object CollectionsCombine {
+val numbers = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
-  val numbers = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-                                                  //> numbers  : List[Int] = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-  numbers.reduce((x, y) => x + y)                 //> res0: Int = 55
-  numbers.reduce(_ + _)                           //> res1: Int = 55
+numbers.reduce((x, y) => x + y)
+numbers.reduce(_ + _)
 
-  //List.empty[Int].reduce(_ + _)
 
-  numbers.fold(0)(_ + _)                          //> res2: Int = 55
-  numbers.fold(1)(_ * _)                          //> res3: Int = 3628800
-  Nil.fold(0)(_ + _)                              //> res4: Int = 0
-  Nil.fold(1)(_ * _)                              //> res5: Int = 1
 
-  (1 to 10).sum                                   //> res6: Int = 55
-  (1 to 10).product                               //> res7: Int = 3628800
+numbers.fold(0)(_ + _)
+numbers.fold(1)(_ * _)
+Nil.fold(0)(_ + _)
+Nil.fold(1)(_ * _)
 
-  def lengthFun[T](xs: List[T]): Int =
-    xs.foldRight(0) { (elt, length) =>
-      1 + length
-    }                                             //> lengthFun: [T](xs: List[T])Int
+(1 to 10).sum
+(1 to 10).product
 
-  lengthFun(numbers)                              //> res8: Int = 10
+def lengthFun[T](xs: List[T]): Int =
+  xs.foldRight(0) { (elt, length) =>
+    1 + length
+  }
 
-  def mapFun[T, U](xs: List[T], f: T => U): List[U] =
-    xs.foldRight(List.empty[U]) { (elt, listRes) =>
-      f(elt) :: listRes
-    }                                             //> mapFun: [T, U](xs: List[T], f: T => U)List[U]
+lengthFun(numbers)
 
-  mapFun(numbers, (x: Int) => x + 3)              //> res9: List[Int] = List(4, 5, 6, 7, 8, 9, 10, 11, 12, 13)
+def mapFun[T, U](xs: List[T], f: T => U): List[U] =
+  xs.foldRight(List.empty[U]) { (elt, listRes) =>
+    f(elt) :: listRes
+  }
 
-}
+mapFun(numbers, (x: Int) => x + 3)
+

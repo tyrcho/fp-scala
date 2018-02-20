@@ -1,9 +1,8 @@
-package samples
 
 object NewtonSqrt {
-  val epsilon = 0.0001                            //> epsilon  : Double = 1.0E-4
+  val epsilon = 0.0001 //> epsilon  : Double = 1.0E-4
 
-  def abs(x: Double) = if (x > 0) x else -x       //> abs: (x: Double)Double
+  def abs(x: Double) = if (x > 0) x else -x //> abs: (x: Double)Double
 
   {
     //initial, naive
@@ -20,7 +19,7 @@ object NewtonSqrt {
     def sqrt(x: Double) = sqrtIter(1.0, x)
 
     sqrt(200)
-  }                                               //> res0: Double = 14.142136001158033
+  } //> res0: Double = 14.142136001158033
 
   //hide private methods
   def sqrt(x: Double) = {
@@ -37,8 +36,8 @@ object NewtonSqrt {
 
     sqrtIter(1.0)
 
-  }                                               //> sqrt: (x: Double)Double
+  } //> sqrt: (x: Double)Double
 
-  sqrt(2e20)                                      //> res1: Double = 1.4142135726118847E10
+  sqrt(2e20) //> res1: Double = 1.4142135726118847E10
 
 }
