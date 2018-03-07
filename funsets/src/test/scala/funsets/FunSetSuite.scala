@@ -142,8 +142,7 @@ class FunSetSuite extends FlatSpec with Matchers {
     }
   }
 
-  // "toSet(List(1,2,3,4))"
-  ignore should "contain same elements" in {
+  "toSet(List(1,2,3,4))" should "contain same elements" in {
     val set = toSet(List(1, 2, 3, 4))
     assert(contains(set, 1))
     assert(contains(set, 2))
@@ -152,8 +151,7 @@ class FunSetSuite extends FlatSpec with Matchers {
     assert(!contains(set, 5))
   }
 
-  //"toList(1,2,3,4)"
-  ignore should "contain same elements" in {
+  "toList(1,2,3,4)" should "contain same elements" in {
     new TestSetsUnion {
       val list = toList(s1234)
       list should contain theSameElementsAs List(1, 2, 3, 4)
