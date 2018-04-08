@@ -1,25 +1,30 @@
 package moviesdb
 
 import scala.io.Codec
-import rapture._
-import rapture.core._
-import rapture.json._
-import rapture.json.jsonBackends.jawn._
-import rapture.json.formatters.humanReadable._
 import scala.collection.immutable.Stream.consWrapper
 import java.nio.file.Files
 import java.nio.file.Paths
+import upickle.default._
+import upickle.default.{macroRW, ReadWriter => RW}
 
 case class Actor(name: String, movies: Vector[String] = Vector())
 
 object Actors {
+
   val actors: Vector[Actor] =
-    Json.parse(actorsString).as[Vector[Actor]] ++ Json.parse(actressesString).as[Vector[Actor]]
+    read[Vector[Actor]](actorsString) ++ read[Vector[Actor]](actressesString)
 
   private def actorsString =
     io.Source.fromFile("actors.json").getLines.mkString
+
   private def actressesString =
     io.Source.fromFile("actresses.json").getLines.mkString
+
+
+}
+
+object Actor {
+  implicit def rw: RW[Actor] = macroRW
 }
 
 object ActorsDemo extends App {
@@ -36,7 +41,7 @@ object ActorsDemo extends App {
       .toStream
       .collect {
         case actorWithTitle(actorName, movieTitle) => Line(movieTitle, Some(Actor(actorName)))
-        case title(movieTitle)                     => Line(movieTitle)
+        case title(movieTitle) => Line(movieTitle)
       }
       .groupWhen(_.actor.nonEmpty)
       .collect {
@@ -46,8 +51,8 @@ object ActorsDemo extends App {
         case Actor(name, movies) if movies.exists(Movies.moviesMap.keySet) =>
           Actor(name, movies.filter(Movies.moviesMap.keySet))
       }
-    val jsonActors = Json(actorsFromTopMovies)
-    Files.write(Paths.get(json), jsonActors.toString.getBytes)
+    val jsonActors = write(actorsFromTopMovies)
+    Files.write(Paths.get(json), jsonActors.getBytes)
   }
 
   implicit class StreamOp[T](stream: Stream[T]) {
@@ -64,6 +69,7 @@ object ActorsDemo extends App {
       }
     }
   }
+
 }
 
 case class Line(movie: String, actor: Option[Actor] = None)

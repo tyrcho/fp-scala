@@ -1,6 +1,6 @@
 package collections
 
-import moviesdb.Movies.{ movies, titles }
+import moviesdb.Movies.{movies, titles}
 import moviesdb.Actors.actors
 import moviesdb._
 
@@ -12,6 +12,7 @@ object MoviesUtil {
   // Hint : filter
   def findTitlesByYear(year: String): Vector[String] =
     ???
+
   // 2. rewrite later with a for expression
 
   // Hint : filter
@@ -24,14 +25,14 @@ object MoviesUtil {
 
   // Hint : maxBy
   def bestMovie: Movie =
-    //    movies.sortBy(m => m.rating).last
+  //    movies.sortBy(m => m.rating).last
     ???
 
   // Hint : sortBy, reverse, take
   def topMovies(n: Int): Vector[Movie] =
     ???
 
-  def actorByName(actorName: String) = {
+  def actorByName(actorName: String): Option[Actor] = {
     // Hint : filter, head
     ???
     // 2. what happens if no actor is found ? use headOption instead
@@ -39,7 +40,7 @@ object MoviesUtil {
   }
 
   // Hint : same as previous
-  def movieByTitle(title: String) = {
+  def movieByTitle(title: String): Option[Movie] = {
     ???
   }
 
@@ -65,6 +66,7 @@ object MoviesUtil {
   // Hint : map
   def titlesWith(actorName: String): Vector[String] =
     ???
+
   // rewrite later with a for expression (hint : also use distinct)
 
   //Hint : map, mkString
