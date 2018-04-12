@@ -124,7 +124,11 @@ Assuming you search the possible paths between `Point(x1,y1)` and `Point(x2,y2)`
 
 ### Wrap-up
 
-Find the best path given a list a segment, an origin and a destination, passing by a list of stops.
+Find the best path given :
+* a list of segments
+* an origin 
+* a destination
+* a list of stops to pass by
 
 
 
