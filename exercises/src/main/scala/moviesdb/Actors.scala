@@ -5,7 +5,7 @@ import java.nio.file.{Files, Paths}
 import upickle.default.{macroRW, ReadWriter => RW, _}
 
 import scala.collection.immutable.Stream.consWrapper
-import scala.io.Codec
+import scala.io.{Codec, Source}
 
 case class Actor(name: String, movies: Vector[String] = Vector())
 
@@ -15,10 +15,10 @@ object Actors {
     read[Vector[Actor]](actorsString) ++ read[Vector[Actor]](actressesString)
 
   private def actorsString =
-    io.Source.fromFile("actors.json").getLines.mkString
+    Source.fromFile("actors.json", "UTF-8").getLines.mkString
 
   private def actressesString =
-    io.Source.fromFile("actresses.json").getLines.mkString
+    Source.fromFile("actresses.json", "UTF-8").getLines.mkString
 
 }
 
@@ -28,12 +28,12 @@ object Actor {
 
 object ActorsDemo extends App {
   // from ftp://ftp.fu-berlin.de/pub/misc/movies/database/
-  //  listToJson("""h:\actresses.list""", "actresses.json")
+  // listToJson("""h:\actresses.list""", "actresses.json")
 
   Actors.actors.foreach(println)
 
   def listToJson(list: String, json: String) = {
-    val lines          = io.Source.fromFile(list)(Codec.ISO8859).getLines
+    val lines          = Source.fromFile(list)(Codec.ISO8859).getLines
     val actorWithTitle = """([^\t]+)\t+([^)]+\)).*""".r
     val title          = """\t+([^)]+\)).*""".r
     val actorsFromTopMovies: Stream[Actor] = lines.toStream
