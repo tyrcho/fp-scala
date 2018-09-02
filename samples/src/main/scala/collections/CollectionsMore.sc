@@ -1,8 +1,6 @@
 
 val words = List("the", "quick", "fox", "jumped", "over", "the", "lazy", "dog")
 
-
-
 words.exists(_.length == 3)
 words.forall(_.length >= 3)
 

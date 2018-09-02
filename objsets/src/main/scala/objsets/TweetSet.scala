@@ -1,8 +1,5 @@
 package objsets
 
-import TweetReader._
-
-
 /**
   * This represents a set of objects of type `Tweet` in the form of a binary search
   * tree. Every branch in the tree has two children (two `TweetSet`s). There is an
@@ -95,7 +92,9 @@ abstract class TweetSet {
 
   override def toString = {
     val sb = new StringBuilder
-    foreach { t => sb.append(t); sb.append("\n") }
+    foreach { t =>
+      sb.append(t); sb.append("\n")
+    }
     sb.toString
   }
 
@@ -114,4 +113,3 @@ abstract class TweetSet {
 
   // -------------------------------------------------------------------------
 }
-

@@ -28,4 +28,3 @@ object Nil extends List[Nothing] {
 object test {
   val x: List[String] = Nil
 }
-

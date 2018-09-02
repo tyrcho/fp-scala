@@ -36,11 +36,13 @@ class FunSetSuite extends FlatSpec with Matchers {
   }
 
   "singletonSet" should "contain one element" in {
+
     /**
       * We create a new instance of the "TestSets" trait, this gives us access
       * to the values "s1" to "s3".
       */
     new TestSets {
+
       /**
         * The string argument of "assert" is a message that is printed in case
         * the test fails. This helps identifying which assertion failed.
@@ -59,8 +61,8 @@ class FunSetSuite extends FlatSpec with Matchers {
   }
 
   trait TestSetsUnion extends TestSets {
-    val s12 = union(s1, s2)
-    val s23 = union(s3, s2)
+    val s12   = union(s1, s2)
+    val s23   = union(s3, s2)
     val s1234 = union(union(s1, s2), union(s3, s4))
   }
 
@@ -82,7 +84,6 @@ class FunSetSuite extends FlatSpec with Matchers {
       assert(contains(difference, 4), "Difference 4")
     }
   }
-
 
   "diff of (1, 2) and (2, 3)" should "contain only (1)" in {
     new TestSetsUnion {

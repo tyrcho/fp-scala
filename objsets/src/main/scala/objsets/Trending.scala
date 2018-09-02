@@ -33,6 +33,7 @@ object EmptyTrending extends Trending {
 }
 
 class NonEmptyTrending(elem: Tweet, next: Trending) extends Trending {
+
   /**
     * Appends tw to the end of this sequence.
     */
@@ -48,4 +49,3 @@ class NonEmptyTrending(elem: Tweet, next: Trending) extends Trending {
   override def toString =
     "NonEmptyTrending(" + elem.retweets + ", " + next + ")"
 }
-

@@ -1,11 +1,11 @@
 package moviesdb
 
-import scala.io.Codec
+import java.nio.file.{Files, Paths}
+
+import upickle.default.{macroRW, ReadWriter => RW, _}
+
 import scala.collection.immutable.Stream.consWrapper
-import java.nio.file.Files
-import java.nio.file.Paths
-import upickle.default._
-import upickle.default.{macroRW, ReadWriter => RW}
+import scala.io.Codec
 
 case class Actor(name: String, movies: Vector[String] = Vector())
 
@@ -20,7 +20,6 @@ object Actors {
   private def actressesString =
     io.Source.fromFile("actresses.json").getLines.mkString
 
-
 }
 
 object Actor {
@@ -34,14 +33,13 @@ object ActorsDemo extends App {
   Actors.actors.foreach(println)
 
   def listToJson(list: String, json: String) = {
-    val lines = io.Source.fromFile(list)(Codec.ISO8859).getLines
+    val lines          = io.Source.fromFile(list)(Codec.ISO8859).getLines
     val actorWithTitle = """([^\t]+)\t+([^)]+\)).*""".r
-    val title = """\t+([^)]+\)).*""".r
-    val actorsFromTopMovies: Stream[Actor] = lines
-      .toStream
+    val title          = """\t+([^)]+\)).*""".r
+    val actorsFromTopMovies: Stream[Actor] = lines.toStream
       .collect {
         case actorWithTitle(actorName, movieTitle) => Line(movieTitle, Some(Actor(actorName)))
-        case title(movieTitle) => Line(movieTitle)
+        case title(movieTitle)                     => Line(movieTitle)
       }
       .groupWhen(_.actor.nonEmpty)
       .collect {
@@ -61,9 +59,9 @@ object ActorsDemo extends App {
       if (clean.isEmpty)
         Stream.empty
       else {
-        val h = clean.head
-        val tail = clean.tail.takeWhile(e => !startPredicate(e))
-        val left = h #:: tail
+        val h     = clean.head
+        val tail  = clean.tail.takeWhile(e => !startPredicate(e))
+        val left  = h #:: tail
         val right = clean.drop(left.size)
         left #:: right.groupWhen(startPredicate)
       }

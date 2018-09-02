@@ -17,8 +17,7 @@ class Rational(x: Int, y: Int) {
   def denom = y
 
   def add(r: Rational): Rational =
-    new Rational(numer * r.denom + r.numer * denom,
-      denom * r.denom)
+    new Rational(numer * r.denom + r.numer * denom, denom * r.denom)
 
   def mul(r: Rational): Rational =
     new Rational(numer * r.numer, denom * r.denom)
@@ -32,7 +31,7 @@ class Rational(x: Int, y: Int) {
     ???
 
   def +(r: Rational): Rational = ???
-  def +(i: Int): Rational = ???
+  def +(i: Int): Rational      = ???
 
   def gcd(a: Int, b: Int): Int =
     if (b == 0) a else gcd(b, a % b)

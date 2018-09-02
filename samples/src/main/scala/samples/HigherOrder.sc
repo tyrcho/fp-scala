@@ -22,5 +22,4 @@ def cube(x: Int): Int = x * x * x
 
 def sumCubes(n: Int) = sum(cube, n)
 
-
 sumCubes(10)

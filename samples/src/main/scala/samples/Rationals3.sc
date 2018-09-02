@@ -1,4 +1,3 @@
-
 object Rationals3 {
 
   class Rational(x: Int, y: Int) {
@@ -30,6 +29,5 @@ object Rationals3 {
   (x add y) mul z
 
   (x + y) * z
-
 
 }

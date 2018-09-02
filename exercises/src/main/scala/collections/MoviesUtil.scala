@@ -1,7 +1,5 @@
 package collections
 
-import moviesdb.Movies.{movies, titles}
-import moviesdb.Actors.actors
 import moviesdb._
 
 object MoviesUtil {
@@ -25,7 +23,7 @@ object MoviesUtil {
 
   // Hint : maxBy
   def bestMovie: Movie =
-  //    movies.sortBy(m => m.rating).last
+    //    movies.sortBy(m => m.rating).last
     ???
 
   // Hint : sortBy, reverse, take

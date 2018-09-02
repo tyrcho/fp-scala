@@ -24,5 +24,3 @@ object GoogleVsApple {
     ??? // TODO: join both sets
   //TODO what is the tweet with highest #retweets?
 }
-
-

@@ -8,15 +8,14 @@ trait MyList[T] {
   def tail: MyList[T]
 }
 
-class Cons[T](val head: T, val tail: MyList[T])
-    extends MyList[T] {
+class Cons[T](val head: T, val tail: MyList[T]) extends MyList[T] {
   def isEmpty = false
 }
 
 class Nil[T] extends MyList[T] {
   def isEmpty = true
-  def head = throw new NoSuchElementException("Nil.head")
-  def tail = throw new NoSuchElementException("Nil.tail")
+  def head    = throw new NoSuchElementException("Nil.head")
+  def tail    = throw new NoSuchElementException("Nil.tail")
 }
 
 object MyDemo extends App {

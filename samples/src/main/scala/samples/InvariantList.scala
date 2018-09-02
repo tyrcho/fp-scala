@@ -24,4 +24,3 @@ class Nil[T] extends List[T] {
 
   def tail = throw new NoSuchElementException("Nil.tail")
 }
-

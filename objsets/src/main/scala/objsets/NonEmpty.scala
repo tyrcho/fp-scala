@@ -33,4 +33,3 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
     ??? //TODO : you can implement the helper function in the NonEmpty set
 
 }
-

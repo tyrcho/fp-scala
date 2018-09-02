@@ -1,4 +1,3 @@
-
 package streams
 
 import org.scalatest.{FlatSpec, Matchers}
@@ -42,7 +41,7 @@ class IntStreamsSuite extends FlatSpec with Matchers {
   "unfold" should "produce the same fibonacci numbers" in {
     val myFibs = unfold((0, 1)) {
       case (a, b) if a + b > 0 => Some((a, (b, a + b)))
-      case _ => None
+      case _                   => None
     }
     myFibs.take(45) should contain theSameElementsInOrderAs fibs.take(45)
   }

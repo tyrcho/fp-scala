@@ -1,6 +1,5 @@
 package streams.waterpouring
 
-import org.scalatest.prop.TableDrivenPropertyChecks._
 import org.scalatest.{FlatSpec, Matchers}
 
 class GlassesTest extends FlatSpec with Matchers {

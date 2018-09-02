@@ -18,23 +18,21 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
   }
 
   "findTitlesByYear => 9 movies" should "be from 1995" in {
-    findTitlesByYear("1995") should contain only(
-      "Se7en (1995)",
-      "The Usual Suspects (1995)",
-      "Braveheart (1995)",
-      "Toy Story (1995)",
-      "Heat (1995)",
-      "Casino (1995)",
-      "Before Sunrise (1995)",
-      "Twelve Monkeys (1995)",
-      "La haine (1995)")
+    findTitlesByYear("1995") should contain only ("Se7en (1995)",
+    "The Usual Suspects (1995)",
+    "Braveheart (1995)",
+    "Toy Story (1995)",
+    "Heat (1995)",
+    "Casino (1995)",
+    "Before Sunrise (1995)",
+    "Twelve Monkeys (1995)",
+    "La haine (1995)")
   }
 
   "findMoviesWithRatingAtLeast => 3 movies" should "have rating >= 9" in {
-    findMoviesWithRatingAtLeast(9) should contain only(
-      Movie("The Shawshank Redemption (1994)", 9.3f),
-      Movie("The Godfather (1972)", 9.2f),
-      Movie("The Godfather: Part II (1974)", 9.0f))
+    findMoviesWithRatingAtLeast(9) should contain only (Movie("The Shawshank Redemption (1994)", 9.3f),
+    Movie("The Godfather (1972)", 9.2f),
+    Movie("The Godfather: Part II (1974)", 9.0f))
   }
 
   "partitionMoviesAtRating => partition at 8.2" should "find 144 below and 106 above" in {
@@ -48,10 +46,9 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
   }
 
   "topMovies => top 3 movies" should "be listed in order" in {
-    topMovies(3) should contain theSameElementsInOrderAs Vector(
-      Movie("The Shawshank Redemption (1994)", 9.3f),
-      Movie("The Godfather (1972)", 9.2f),
-      Movie("The Godfather: Part II (1974)", 9.0f))
+    topMovies(3) should contain theSameElementsInOrderAs Vector(Movie("The Shawshank Redemption (1994)", 9.3f),
+                                                                Movie("The Godfather (1972)", 9.2f),
+                                                                Movie("The Godfather: Part II (1974)", 9.0f))
   }
 
   "actorByName => Matt Damon" should "be found by its name" in {
@@ -65,7 +62,7 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
   "movieByTitle => The Godfather" should "be found by its title" in {
     movieByTitle("The Godfather (1972)") match {
       case Some(Movie("The Godfather (1972)", _)) => // OK
-      case _ => fail("not found : godfather")
+      case _                                      => fail("not found : godfather")
     }
   }
 
@@ -78,20 +75,19 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
   }
 
   "csv" should "format the movies" in {
-    csv(Vector(
-      Movie("The Shawshank Redemption (1994)", 9.3f),
-      Movie("The Godfather (1972)", 9.2f),
-      Movie("The Godfather: Part II (1974)", 9.0f))) shouldBe
+    csv(
+      Vector(Movie("The Shawshank Redemption (1994)", 9.3f),
+             Movie("The Godfather (1972)", 9.2f),
+             Movie("The Godfather: Part II (1974)", 9.0f))) shouldBe
       "The Shawshank Redemption (1994), The Godfather (1972), The Godfather: Part II (1974)"
   }
 
   "titlesWith => Matt Damon" should "have played in 5 good titles" in {
-    titlesWith("Damon, Matt") should contain only(
-      "Saving Private Ryan (1998)",
-      "Interstellar (2014)",
-      "The Departed (2006)",
-      "Good Will Hunting (1997)",
-      "The Bourne Ultimatum (2007)")
+    titlesWith("Damon, Matt") should contain only ("Saving Private Ryan (1998)",
+    "Interstellar (2014)",
+    "The Departed (2006)",
+    "Good Will Hunting (1997)",
+    "The Bourne Ultimatum (2007)")
   }
 
   "titlesWithAny => 11 movies" should "have featured Tom Hanks or DiCaprio" in {
@@ -99,27 +95,25 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
   }
 
   "moviesWithAll => DiCaprio and Tom Hanks" should "have played together only in Catch Me ..." in {
-    moviesWithAll(Vector("DiCaprio, Leonardo", "Hanks, Tom")) should contain only (
-      Movie("Catch Me If You Can (2002)", 8f))
+    moviesWithAll(Vector("DiCaprio, Leonardo", "Hanks, Tom")) should contain only (Movie("Catch Me If You Can (2002)",
+                                                                                         8f))
   }
 
   "titlesWithAll => DiCaprio and Tom Hanks" should "have played together only in Catch Me ... (titles)" in {
-    titlesWithAll(Vector("DiCaprio, Leonardo", "Hanks, Tom")) should contain only (
-      "Catch Me If You Can (2002)")
+    titlesWithAll(Vector("DiCaprio, Leonardo", "Hanks, Tom")) should contain only ("Catch Me If You Can (2002)")
   }
 
   "moviesWith => Matt Damon" should "have played in 5 movies" in {
-    moviesWith("Damon, Matt").map(_.title) should contain only(
-      "Saving Private Ryan (1998)",
-      "Interstellar (2014)",
-      "The Departed (2006)",
-      "Good Will Hunting (1997)",
-      "The Bourne Ultimatum (2007)")
+    moviesWith("Damon, Matt").map(_.title) should contain only ("Saving Private Ryan (1998)",
+    "Interstellar (2014)",
+    "The Departed (2006)",
+    "Good Will Hunting (1997)",
+    "The Bourne Ultimatum (2007)")
   }
 
   "moviesWithAny => DiCaprio or Tom Hanks" should "have played in 12 movies" in {
     moviesWithAny("DiCaprio, Leonardo", "Hanks, Tom") should (
-      contain only(
+      contain only (
         Movie("Inception (2010)", 8.7F),
         Movie("The Departed (2006)", 8.5F),
         Movie("Django Unchained (2012)", 8.4F),
@@ -132,7 +126,7 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
         Movie("Toy Story (1995)", 8.3F),
         Movie("Catch Me If You Can (2002)", 8.0F)
       ) and have size 11
-      )
+    )
 
   }
 
@@ -155,4 +149,3 @@ class MoviesUtilSuite extends FlatSpec with Matchers {
   }
 
 }
-

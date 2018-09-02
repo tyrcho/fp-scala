@@ -4,7 +4,7 @@ import org.scalatest.{FlatSpec, Matchers}
 import patmat.Simplifications._
 
 class SimplificationsSuite extends FlatSpec with Matchers {
-  val five = Number(5)
+  val five  = Number(5)
   val three = Number(3)
   val eight = Number(8)
 
@@ -25,11 +25,8 @@ class SimplificationsSuite extends FlatSpec with Matchers {
   }
 
   "3 * 5 - 3 * 8" should "simplify to 3 * (5 - 8)" in {
-    simplify(BinaryExpr(Minus,
-      BinaryExpr(Mult, three, five),
-      BinaryExpr(Mult, three, eight))) shouldBe
+    simplify(BinaryExpr(Minus, BinaryExpr(Mult, three, five), BinaryExpr(Mult, three, eight))) shouldBe
       BinaryExpr(Mult, three, BinaryExpr(Minus, five, eight))
   }
 
 }
-

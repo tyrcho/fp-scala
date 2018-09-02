@@ -16,7 +16,6 @@ def sum(f: Int => Int, n: Int): Int =
 sum(identity, 10)
 sum(square, 10)
 
-
 def sumCubes(n: Int) =
   sum(x => x * x * x, n)
 

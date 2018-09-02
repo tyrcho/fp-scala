@@ -1,4 +1,3 @@
-
 package collections
 
 import collections.Pack._

@@ -1,7 +1,5 @@
 package recursivity
 
-import scala.annotation.tailrec
-
 object Factorial extends App {
   println(factorial(5))
   println(factorialTailRec(5))

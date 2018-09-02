@@ -1,6 +1,5 @@
 package moviesdb
 
-
 case class Movie(title: String, rating: Float)
 
 object Movies {
