@@ -48,5 +48,5 @@ object IntStreams {
   def sieve(s: Stream[Int]): Stream[Int] =
     ???
 
-  val primes = sieve(from(2))
+  val primes: Stream[Int] = sieve(from(2))
 }

@@ -13,8 +13,8 @@ object Rationals extends App {
 }
 
 class Rational(x: Int, y: Int) {
-  def numer = x
-  def denom = y
+  def numer: Int = x
+  def denom: Int = y
 
   def add(r: Rational): Rational =
     new Rational(numer * r.denom + r.numer * denom, denom * r.denom)
@@ -22,7 +22,7 @@ class Rational(x: Int, y: Int) {
   def mul(r: Rational): Rational =
     new Rational(numer * r.numer, denom * r.denom)
 
-  override def toString = numer + "/" + denom
+  override def toString: String = numer + "/" + denom
 
   def less(that: Rational): Boolean =
     ???

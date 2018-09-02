@@ -90,7 +90,7 @@ abstract class TweetSet {
     }
   }
 
-  override def toString = {
+  override def toString: String = {
     val sb = new StringBuilder
     foreach { t =>
       sb.append(t); sb.append("\n")

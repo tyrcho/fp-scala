@@ -18,9 +18,9 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
 
   def isEmpty = false
 
-  def head = if (left.isEmpty) elem else left.head
+  def head: Tweet = if (left.isEmpty) elem else left.head
 
-  def tail = if (left.isEmpty) right else new NonEmpty(elem, left.tail, right)
+  def tail: TweetSet = if (left.isEmpty) right else new NonEmpty(elem, left.tail, right)
 
   def remove(tw: Tweet): TweetSet =
     if (tw.text < elem.text) new NonEmpty(elem, left.remove(tw), right)

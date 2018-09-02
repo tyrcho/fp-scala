@@ -46,6 +46,6 @@ class NonEmptyTrending(elem: Tweet, next: Trending) extends Trending {
 
   def isEmpty: Boolean = false
 
-  override def toString =
+  override def toString: String =
     "NonEmptyTrending(" + elem.retweets + ", " + next + ")"
 }

@@ -29,10 +29,10 @@ class FunSetSuite extends FlatSpec with Matchers {
     * abstract classes), and create an instance inside each test method.
     */
   trait TestSets {
-    val s1 = singleElementSet(1)
-    val s2 = singleElementSet(2)
-    val s3 = singleElementSet(3)
-    val s4 = singleElementSet(4)
+    val s1: FunSet = singleElementSet(1)
+    val s2: FunSet = singleElementSet(2)
+    val s3: FunSet = singleElementSet(3)
+    val s4: FunSet = singleElementSet(4)
   }
 
   "singletonSet" should "contain one element" in {
@@ -53,7 +53,7 @@ class FunSetSuite extends FlatSpec with Matchers {
 
   "union of 1 and 2" should "contain 1, 2 but not 3" in {
     new TestSets {
-      val s = union(s1, s2)
+      val s: FunSet = union(s1, s2)
       assert(contains(s, 1), "Union 1")
       assert(contains(s, 2), "Union 2")
       assert(!contains(s, 3), "Union 3")
@@ -61,14 +61,14 @@ class FunSetSuite extends FlatSpec with Matchers {
   }
 
   trait TestSetsUnion extends TestSets {
-    val s12   = union(s1, s2)
-    val s23   = union(s3, s2)
-    val s1234 = union(union(s1, s2), union(s3, s4))
+    val s12: FunSet   = union(s1, s2)
+    val s23: FunSet   = union(s3, s2)
+    val s1234: FunSet = union(union(s1, s2), union(s3, s4))
   }
 
   "intersection of (1, 2) and (2, 3)" should "contain only 2" in {
     new TestSetsUnion {
-      val intersection = intersect(s12, s23)
+      val intersection: FunSet = intersect(s12, s23)
       assert(!contains(intersection, 1), "Intersection 1")
       assert(contains(intersection, 2), "Intersection 2")
       assert(!contains(intersection, 3), "Intersection 3")
@@ -77,7 +77,7 @@ class FunSetSuite extends FlatSpec with Matchers {
 
   "diff of (1, 2, 3, 4) and (2, 3)" should "contain only (1, 4)" in {
     new TestSetsUnion {
-      val difference = diff(s1234, s23)
+      val difference: FunSet = diff(s1234, s23)
       assert(contains(difference, 1), "Difference 1")
       assert(!contains(difference, 2), "Difference 2")
       assert(!contains(difference, 3), "Difference 3")
@@ -87,7 +87,7 @@ class FunSetSuite extends FlatSpec with Matchers {
 
   "diff of (1, 2) and (2, 3)" should "contain only (1)" in {
     new TestSetsUnion {
-      val difference = diff(s12, s23)
+      val difference: FunSet = diff(s12, s23)
       assert(contains(difference, 1), "Difference 1")
       assert(!contains(difference, 2), "Difference 2")
       assert(!contains(difference, 3), "Difference 3")
@@ -96,7 +96,7 @@ class FunSetSuite extends FlatSpec with Matchers {
 
   "filter of (1, 2, 3, 4) for odd numbers" should "contain only (1, 3)" in {
     new TestSetsUnion {
-      val filtered = filter(s1234, x => x % 2 == 1)
+      val filtered: FunSet = filter(s1234, x => x % 2 == 1)
       assert(contains(filtered, 1), "Filtered 1")
       assert(!contains(filtered, 2), "Filtered 2")
       assert(contains(filtered, 3), "Filtered 3")
@@ -136,7 +136,7 @@ class FunSetSuite extends FlatSpec with Matchers {
 
   "map of (1, 2, 3, 4) for square" should "be (1, 4, 9, 16)" in {
     new TestSetsUnion {
-      val mapped = map(s1234, x => x * x)
+      val mapped: FunSet = map(s1234, x => x * x)
       assert(contains(mapped, 1), "Mapped 1")
       assert(contains(mapped, 4), "Mapped 4")
       assert(contains(mapped, 16), "Mapped 16")
@@ -154,7 +154,7 @@ class FunSetSuite extends FlatSpec with Matchers {
 
   "toList(1,2,3,4)" should "contain same elements" in {
     new TestSetsUnion {
-      val list = toList(s1234)
+      val list: List[Int] = toList(s1234)
       list should contain theSameElementsAs List(1, 2, 3, 4)
     }
   }

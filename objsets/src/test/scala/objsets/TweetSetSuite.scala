@@ -5,14 +5,14 @@ import org.scalatest.FunSuite
 class TweetSetSuite extends FunSuite {
 
   trait TestSets {
-    val set1  = EmptySet
-    val set2  = set1.incl(new Tweet("a", "a body", 20))
-    val set3  = set2.incl(new Tweet("b", "b body", 20))
+    val set1: EmptySet.type = EmptySet
+    val set2: TweetSet = set1.incl(new Tweet("a", "a body", 20))
+    val set3: TweetSet = set2.incl(new Tweet("b", "b body", 20))
     val c     = new Tweet("c", "c body", 7)
     val d     = new Tweet("d", "d body", 9)
-    val set4c = set3.incl(c)
-    val set4d = set3.incl(d)
-    val set5  = set4c.incl(d)
+    val set4c: TweetSet = set3.incl(c)
+    val set4d: TweetSet = set3.incl(d)
+    val set5: TweetSet  = set4c.incl(d)
   }
 
   def size(set: TweetSet): Int = {
@@ -58,7 +58,7 @@ class TweetSetSuite extends FunSuite {
 
   test("ascending: set5") {
     new TestSets {
-      val trends = set5.ascendingByRetweet
+      val trends: Trending = set5.ascendingByRetweet
       assert(!trends.isEmpty)
       assert(trends.head.user === "c")
     }

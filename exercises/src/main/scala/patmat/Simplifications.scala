@@ -9,7 +9,7 @@ object Simplifications {
 
   sealed trait Expr
   case class Number(n: Int) extends Expr {
-    override val toString = n.toString
+    override val toString: String = n.toString
   }
 
   val zero = Number(0)

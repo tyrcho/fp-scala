@@ -9,7 +9,7 @@ package object common {
     *
     * corresponds to ~/b/c
     */
-  def subFile(file: File, children: String*) = {
+  def subFile(file: File, children: String*): File = {
     children.foldLeft(file)((file, child) => new File(file, child))
   }
 
