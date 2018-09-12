@@ -7,6 +7,6 @@ object Factorial extends App {
   def factorial(n: Int): Int =
     ???
 
-//  def factorialTailRec(i: Int, prods: Int = 1): Int =
-//    ???
+  def factorialTailRec(i: Int, prods: Int = 1): Int =
+    ???
 }
