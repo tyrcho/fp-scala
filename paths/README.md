@@ -1,16 +1,10 @@
-# Paths 
-
-To begin, clone or download the project from github. It contains a skeleton to ease your work.
-
-In Eclipse : Import as maven project
-
-In IntelliJ : Right-click on pom.xml, then click on "Add as maven project"
+# Paths
 
 ## Introduction
 
-In this project, you will search paths produced by an API such as Google Maps. 
+In this project, you will search paths produced by an API such as Google Maps.
 
-This API provides **possible paths from origin to destination**, 
+This API provides **possible paths from origin to destination**,
 for example, all the possible ways to go to Paris from Marseille with all intermediate cities.
 
 We suppose the API produce **only valid paths**, no need to implement any validation on the paths.
@@ -27,7 +21,7 @@ The length is the euclidean distance between origin and destination `sqrt[(x1 - 
 
 Tests :
 
-* The length of a trivial segment `Point(x, y), Point(x, y)` is 0 
+* The length of a trivial segment `Point(x, y), Point(x, y)` is 0
 * The length of a vertical segment `Point(x, y1), Point(x, y2)` is abs(y1 - y2)
 * The length of a general segment `Point(x1, y1), Point(x2, y2)`
 
@@ -70,9 +64,9 @@ Tests :
 ### Filter paths keeping only those which include a stop
 
 Given a list of paths and a point, produce the list of paths which have this intermediate stop.
- 
+
 Tests :
- 
+
 * Filter an empty list of paths
 * Filter a list of paths containing paths which not include the stop
 * Filter a list of paths containing at least one path which include the stop
@@ -83,7 +77,7 @@ Given a list of paths and a list of points,
 return the list of paths which stops at all of these points.
 
 Tests :
- 
+
 * Filter an empty list of paths
 * Filter a list of paths which not stop at the full list of points
 * Filter a list of paths containing at least one path which stops at all the points
@@ -126,7 +120,7 @@ Assuming you search the possible paths between `Point(x1,y1)` and `Point(x2,y2)`
 
 Find the best path given :
 * a list of segments
-* an origin 
+* an origin
 * a destination
 * a list of stops to pass by
 
