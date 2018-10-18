@@ -9,6 +9,7 @@ for example, all the possible ways to go to Paris from Marseille with all interm
 
 We suppose the API produce **only valid paths**, no need to implement any validation on the paths.
 
+
 ## Use Cases
 
 You are suggested to use [Scala test](http://www.scalatest.org/) to write your test cases.
@@ -124,6 +125,9 @@ Find the best path given :
 * a destination
 * a list of stops to pass by
 
+### Possible design
+
+![](https://g.gravizo.com/g?/**%20@opt%20all%20*/class%20Point%20{%20%20public%20int%20x;%20%20public%20int%20y;}/**%20@opt%20all%20*/class%20Segment%20{%20%20public%20Point%20origin;%20%20public%20Point%20destination;%20%20public%20double%20distance%28%29;}/**%20@opt%20all%20*/class%20Path%20{%20%20public%20List%20segments;%20%20public%20double%20distance%28%29;%20%20public%20List%20stops;}/**%20@opt%20all%20*/class%20PathList%20{%20%20public%20List%20paths;%20%20public%20Path%20shortestPath%28%29;})
 
 
 ## Grading
