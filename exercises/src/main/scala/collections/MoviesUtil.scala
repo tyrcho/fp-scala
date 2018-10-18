@@ -1,6 +1,8 @@
 package collections
 
 import moviesdb._
+import Movies._
+import Actors._
 
 object MoviesUtil {
   // Hint : contains
