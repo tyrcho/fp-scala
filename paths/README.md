@@ -8,7 +8,7 @@ This API provides **possible paths from origin to destination**,
 for example, all the possible ways to go to Paris from Marseille with all intermediate cities.
 
 We suppose the API produce **only valid paths**, no need to implement any validation on the paths.
-
+(eg: do NOT consider paths like A-B C-D, only consider A-B B-C C-D)
 
 ## Use Cases
 
@@ -53,8 +53,8 @@ Tests :
 
 ### Enumerate all stops in a path
 
-Stops in a path are all intermediate points of a path.
-They represent possible places where a driver could stop to pickup or deposit someone.
+Stops in a path represent possible places where a driver could stop to pickup or deposit someone.
+They are computed as the vertices (`from` and `to` points) of the segments in the path.
 
 Tests :
 
@@ -83,7 +83,7 @@ Tests :
 * Filter a list of paths which not stop at the full list of points
 * Filter a list of paths containing at least one path which stops at all the points
 
-### Find the best path
+### Find the shortest path with stops
 
 Find the shortest path in a list of paths, which stops at a given list of points.
 As the shortest path may not exists (if the list is empty), this function returns an Option.
@@ -117,7 +117,7 @@ Assuming you search the possible paths between `Point(x1,y1)` and `Point(x2,y2)`
 
 
 
-### Wrap-up
+### Wrap-up : find the best path
 
 Find the best path given :
 * a list of segments
